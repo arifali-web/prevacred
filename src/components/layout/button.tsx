@@ -36,7 +36,7 @@ export const Button = ({ style, type = 'Solid', ...props }: ButtonProps) => {
   return (
     // <LinearGradient
     //   style={{ borderRadius: 14 }}
-    //   colors={['#30c3df', '#2679df']}
+    //   colors={['#A85155', '#DB3F50']}
     //   start={{ x: 0, y: 0 }}
     //   end={{ x: 1, y: 0 }}
     // >
@@ -47,9 +47,9 @@ export const Button = ({ style, type = 'Solid', ...props }: ButtonProps) => {
       borderColor={BorderColor[type]}
       //@ts-ignore
       backgroundColor={props.background ? BackgroundColor[type] : ''}
-      borderRadius="s"
+      borderRadius='xl'
       align="mid"
-      height={sizes.control.height}
+      height={props.height ? props.height : sizes.control.height}
       {...props}
       onPress={onPress}
     >
@@ -59,8 +59,8 @@ export const Button = ({ style, type = 'Solid', ...props }: ButtonProps) => {
         <Text
           //@ts-ignore
           color={Color[type]}
-          size="h4"
-          font="SemiBold"
+          size='h5'
+          font="Bold"
           paddingHorizontal
           text={props.label}
           style={props.texyStyle}

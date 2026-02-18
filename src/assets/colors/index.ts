@@ -1,13 +1,13 @@
 export default {
   light: {
-    primary: '#4f92e6',
-    onPrimary: '#0000',
+    primary: '#545454',
+    onPrimary: '#FFFFFF',
     primary2: '#78471C',
     primaryContainer: '#E2E2E2',
     onPrimaryContainer: '#3A4750',
 
     btn: '#F2F2F2',
-    onBtn: '#F7F7F7',
+    onBtn: '#A85155',
 
     control: '#ffffff',
     onControl: '#696969',
@@ -18,7 +18,8 @@ export default {
     container: '#9b6636ad',
     commentBox: '#E8E8E8',
     Text: '#5E5E5E',
-    Text2: '#575757',
+    Text2: '#474747',
+    text3: '#A85155',
     inputBorder: '#A8A8A9',
     heading: '#1F1F1F',
     subHeading: '#292d32',
@@ -60,7 +61,7 @@ export default {
     onSurface: '#73858F',
 
     surfaceVariant: '#eff0f2',
-    onSurfaceVariant: '#adb2bd',
+    onSurfaceVariant: '#676767',
 
     outline: '#C9CCD399',
     // outlineVariant: 'rgb(192, 200, 204)',

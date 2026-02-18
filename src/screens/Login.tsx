@@ -19,54 +19,67 @@ import {UserProps} from '.';
 import {Platform} from 'react-native';
 const Login = (props: UserProps<'Login'>) => {
   return (
-    <Page paddingVertical="s" backgroundColor="onPrimary">
+    <ImageBackground src="LoginBg" flex>
+      {/* <Page paddingVertical="s"> */}
       <Form>
         <View
           paddingTop={Platform.OS === 'ios' ? 'xl' : 's'}
           flex
           gap="b"
           padding
-          borderRadius="xs">
-          <Image
-            src="Logo"
-            alignSelf="center"
-            width={94}
-            aspectRatio={1}
-            resizeMode="contain"
-          />
-          <View marginVertical="l">
-            <Text marginBottom="s" size="h1" font="SemiBold" text="Welcome" />
+          borderRadius="xs"
+          align='middle'
+        >
+          <View marginBottom='xl' align="center">
+            <Image
+              src="LoginIcon"
+              alignSelf="center"
+              width={94}
+              aspectRatio={1}
+              resizeMode="contain"
+            />
             <Text
-              color="subHeading"
+              marginBottom="s"
+              color="primary"
+              style={{ fontSize: 24.13 }}
+              font="SemiBold"
+              text="Sign in to your Account"
+            />
+            <Text
+              color="primary"
               font="Regular"
-              style={{opacity: 0.6}}
               size="h6"
-              text="Login to continue using your account"
+              text="Enter your email and password to log in "
             />
           </View>
           <TextInput
             id="email"
             type="email"
             next="password"
+            height={54.61}
             textAlignVertical="center"
             // label='Email Address'
-            placeholder="Email Address"
-            left={() => <Icon name="Email" size="s" />}
-            leftDull={() => <Icon name="EmailDull" size="s" />}
+            placeholder="Username"
+            right={() => <Icon name="User" size="s" />}
+            rightDull={() => <Icon name="User" size="s" />}
           />
           <TextInput
             id="password"
             type="password"
+            height={54.61}
             // label='Password'
             placeholder="Password"
-            left={() => <Icon name="Lock" size="s" />}
-            leftDull={() => <Icon name="LockDull" size="s" />}
-            rightDull={() => <Icon name="EyeDull" size="s" />}
-            right={() => <Icon name="Eye" size="s" />}
+            // left={() => <Icon name="Lock" size="s" />}
+            // leftDull={() => <Icon name="LockDull" size="s" />}
+            // rightDull={() => <Icon name="EyeDull" size="s" />}
+            // right={() => <Icon name="Eye" size="s" />}
+            right={() => <Icon name="Lock" size="s" />}
+            rightDull={() => <Icon name="Lock" size="s" />}
           />
           <View row space="between" marginVertical="s">
-            <Checkbox label="Remember me" id="remember" />
-            <Pressable
+            {/* <Checkbox label="Remember me" id="remember" /> */}
+            <Text color="primary" font="Medium" size="h6" text="Remember me" />
+            {/* <Pressable
               onPress={() => props.navigation.navigate('ForgotPassword')}>
               <Text
                 size="h6"
@@ -74,46 +87,44 @@ const Login = (props: UserProps<'Login'>) => {
                 color="primary"
                 text="Forgot Password"
               />
-            </Pressable>
+            </Pressable> */}
           </View>
-
+         
           <Button
             onPress={() => props.navigation.navigate('Tabs')}
-            label="Sign In"
+            label="Login"
+            background="#A85155"
+            height={63}
           />
-          <Text
-            textAlign="center"
-            marginVertical="s"
-            size="body"
-            color="title"
-            text="OR"
-          />
-          <View row align="mid" gap>
-            <Pressable>
-              <Image src="Google" width={60} aspectRatio={1} />
-            </Pressable>
-            <Pressable>
-              <Image src="Apple" width={60} aspectRatio={1} />
-            </Pressable>
-          </View>
           <Pressable
-            marginTop="xl"
             onPress={() => props.navigation.navigate('Signup')}
             row
-            gap="s"
-            flex
-            align="mid">
+            gap='xs'
+            align="mid"
+
+          >
             <Text
               color="Text2"
-              size="h6"
-              font="Regular"
+              // size="h6"
+              style={{ fontSize: 14.92 }}
+              font="Medium"
               text="Don’t have an account? "
             />
-            <Text color="primary" size="h6" font="Regular" text="Register" />
+            <Text color="text3"  style={{ fontSize: 14.92 }} font="SemiBold" text="Sign Up" />
           </Pressable>
+            
+
+          <Image
+            src="Logo"
+            alignSelf="center"
+            width={164}
+            aspectRatio={1}
+            resizeMode="contain"
+          />
         </View>
       </Form>
-    </Page>
+      {/* </Page> */}
+    </ImageBackground>
   );
 };
 

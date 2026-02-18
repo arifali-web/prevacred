@@ -11,6 +11,7 @@ import React, {
   useEffect,
 } from 'react';
 import { TextInputProps } from 'react-native';
+import { View } from '../layout';
 
 type RefCollectorType = (arg: { id: string; next?: string }) => TextInputProps;
 

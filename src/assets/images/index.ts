@@ -15,4 +15,8 @@ export default {
     Lock: require("./Lock.png"),
     Send: require("./send.png"),
     Sphere: require("./sphere.png"),
+    Thumb: require("./thumb.png"),
+    WelcomeBg: require("./welcomebg.png"),
+    LoginBg: require("./loginBg.png"),
+    LoginIcon: require("./loginIcon.png"),
 }

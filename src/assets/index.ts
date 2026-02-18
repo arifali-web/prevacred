@@ -3,6 +3,7 @@ import IMAGES from './images';
 import ICONS from './icons';
 import COLORS from './colors';
 import language from './language';
+import { Platform } from 'react-native';
 // export const Language = language
 export const {
   ThemeProvider,
@@ -18,11 +19,11 @@ export const {
   colors: COLORS,
   fonts: {
     en: {
-      Bold: 'Poppins-Bold',
-      Light: 'Poppins-Light',
-      Regular: 'Poppins-Regular',
-      SemiBold: 'Poppins-SemiBold',
-      Medium: 'Poppins-Medium',
+      Bold: Platform.OS === 'ios' ? 'Poppins Bold' : 'Poppins-Bold',
+      Light: Platform.OS === 'ios' ? 'Poppins Light' : 'Poppins-Light',
+      Regular: Platform.OS === 'ios' ? 'Poppins Regular' : 'Poppins-Regular',
+      SemiBold: Platform.OS === 'ios' ? 'Poppins SemiBold' : 'Poppins-SemiBold',
+      Medium: Platform.OS === 'ios' ? 'Poppins Medium' : 'Poppins-Medium',
     },
   },
   icons: ICONS,

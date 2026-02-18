@@ -17,6 +17,7 @@ import PrfileDetails from './PrfileDetails';
 import ChangePassword from './ChangePassword';
 import EditProfile from './EditProfile';
 import Editstep2 from './Editstep2';
+import Welcome from './Welcome';
 export type UserStackType = {
   Welcome: undefined;
   Login: undefined;
@@ -69,7 +70,7 @@ export function Root(): React.JSX.Element {
   }));
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Welcome">
         <Stack.Group
           screenOptions={{
             headerBackImage(props) {
@@ -92,11 +93,11 @@ export function Root(): React.JSX.Element {
             screenOptions={{
               headerShown: false,
             }}>
-            {/* <Stack.Screen component={Welcome} name="Welcome" options={{ headerShown: false }} /> */}
+            <Stack.Screen component={Welcome} name="Welcome" options={{ headerShown: false }} />
             <Stack.Screen
               component={Login}
               name="Login"
-              options={{headerShown: true}}
+              options={{headerShown: false}}
             />
           </Stack.Group>
           {/* <Stack.Group

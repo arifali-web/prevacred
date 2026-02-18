@@ -1,6 +1,6 @@
 // import i18next from 'i18next';
 import React, { PropsWithChildren, createContext, useContext } from 'react';
-// import { initReactI18next, useTranslation } from 'react-i18next';
+import { initReactI18next, useTranslation } from 'react-i18next';
 import {
   ColorSchemeName,
   Dimensions,
@@ -13,6 +13,7 @@ import {
   useColorScheme,
 } from 'react-native';
 import Language from '../../assets/language';
+import i18next from 'i18next';
 
 export function createTheme<
   ColorType,

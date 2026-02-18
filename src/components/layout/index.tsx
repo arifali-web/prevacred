@@ -15,7 +15,7 @@ import ReAnimated from 'react-native-reanimated';
 import { withStyleProps } from './withStyleProps';
 import { colors, fonts, icons, images, sizes } from '@assets';
 import { forwardRef } from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import {
   FlatListProps,
   HorizontalCardListProps,
@@ -171,32 +171,80 @@ export const Icon = withStyleProps<IconProps>(
     tintColor: options.colors[options.conditions.color],
   },
 }));
+// export const Text = withStyleProps<LayoutTextProp>(
+//   forwardRef(function (prop, ref) {
+//     const { t, i18n } = useTranslation();
+//     console.log(Object.keys(options?.fonts));
+// console.log(Object.keys(options?.colors));
+
+//     return (
+//       <TextBase {...prop} ref={ref}>
+//         {/* {!!prop.text?t("common:"+prop.text):""}{prop.children || ""} */}
+//         {prop.text || ''}
+//         {prop.children || ''}
+//       </TextBase>
+//     );
+//   }),
+// )(options => ({
+//   style: {
+//     fontFamily: !!options.conditions.font
+//       ? options.fonts[options.conditions.font as keyof typeof fonts]
+//       : options.fonts.Regular,
+//     fontSize: !!options.conditions.size
+//       ? options.sizes.text[options.conditions.size as keyof typeof sizes.text]
+//       : sizes.text.body,
+//     color: !!options.conditions.color
+//       ? options.colors[options.conditions.color as keyof typeof colors.light]
+//       : options.colors.onBackground,
+//     textAlign: options.conditions.textAlign == 'center' ? 'center' : undefined,
+//     textDecorationLine: options.conditions.line,
+//   },
+// }));
+
+
 export const Text = withStyleProps<LayoutTextProp>(
-  forwardRef(function (prop, ref) {
-    const { t, i18n } = useTranslation();
+  forwardRef(function Text(prop, ref) {
+    const { text, children, ...rest } = prop;
+
     return (
-      <TextBase {...prop} ref={ref}>
-        {/* {!!prop.text?t("common:"+prop.text):""}{prop.children || ""} */}
-        {prop.text || ''}
-        {prop.children || ''}
+      <TextBase {...rest} ref={ref}>
+        {text ?? ''}
+        {children ?? ''}
       </TextBase>
     );
   }),
-)(options => ({
-  style: {
-    fontFamily: !!options.conditions.font
-      ? options.fonts[options.conditions.font as keyof typeof fonts]
-      : options.fonts.Regular,
-    fontSize: !!options.conditions.size
-      ? options.sizes.text[options.conditions.size as keyof typeof sizes.text]
-      : sizes.text.body,
-    color: !!options.conditions.color
-      ? options.colors[options.conditions.color as keyof typeof colors.light]
-      : options.colors.onBackground,
-    textAlign: options.conditions.textAlign == 'center' ? 'center' : undefined,
-    textDecorationLine: options.conditions.line,
-  },
-}));
+)(options => {
+  console.log("FONT CONDITION:", options.conditions.font);
+  console.log("FONTS KEYS:", Object.keys(options.fonts));
+  const fontKey = options.conditions.font as string | undefined;
+  const colorKey = options.conditions.color as string | undefined;
+  const sizeKey = options.conditions.size as string | undefined;
+
+  const resolvedFont =
+    (fontKey && (options.fonts as any)[fontKey]) ||
+    (fontKey && (options.fonts as any)[fontKey?.toLowerCase()]) ||
+    options.fonts.Regular;
+
+  const resolvedColor =
+    (colorKey && (options.colors as any)[colorKey]) ||
+    (colorKey && (options.colors as any)[colorKey?.toLowerCase()]) ||
+    options.colors.onBackground;
+
+  const resolvedSize =
+    (sizeKey && options.sizes.text?.[sizeKey as any]) || sizes.text.body;
+
+  return {
+    style: {
+      fontFamily: resolvedFont,
+      fontSize: resolvedSize,
+      color: resolvedColor,
+      textAlign: options.conditions.textAlign === 'center' ? 'center' : undefined,
+      textDecorationLine: options.conditions.line,
+    },
+  };
+});
+
+
 
 const styles = StyleSheet.create({
   page: { flex: 1 },

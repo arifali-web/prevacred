@@ -1,20 +1,102 @@
-import React from 'react'
-import { Button, Image, ImageBackground, Text, View } from '@components'
-import { UserProps } from '.'
+import React from 'react';
+import {
+  Button,
+  FlatList,
+  Icon,
+  Image,
+  ImageBackground,
+  Page,
+  Text,
+  View,
+} from '@components';
+import { UserProps } from '.';
 
-const AlfredWelcome = (props: UserProps<"Welcome">) => {
-    return (
-        <ImageBackground src='BackgroundImage' height={"100%"} >
-            <View padding margin flex gap='l' align='middle'>
-                <Image src='Logo' height={120} width={'100%'} resizeMode='contain' />
-                <Text size="h1" textAlign='center' font="PopinsBold" color="onPrimary" >Read your favourite book from here.</Text>
-                <Text textAlign='center' font='PopinsRegular' size="h6" color="onPrimary" >Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                <View >
-                <Button type='Outline' label="Get Started" onPress={() => props.navigation.navigate("Login")} />
+const checkItem = [
+  'Instant access to verified credentitials.',
+  'Trusted Identity Verification, Secured by Technology.',
+  'Reduce Operational Costs for Your Organization.',
+];
+
+const AlfredWelcome = (props: UserProps<'Welcome'>) => {
+  return (
+    // <Page flex backgroundColor="white">
+      <ImageBackground src="WelcomeBg" height={'100%'}>
+        <View padding margin flex align="middle">
+          <View flex align="middle" style={{ marginTop: 50 }}>
+            <Text
+              style={{
+                fontSize: 38,
+              }}
+              size="h1"
+              textAlign="center"
+              font="Bold"
+              color="primary"
+            >
+              Welcome to
+            </Text>
+            <Image
+              src="Logo"
+              height={120}
+              width={164}
+              style={{
+                marginTop: -50,
+                marginBottom: -20,
+              }}
+              alignSelf="center"
+              resizeMode="contain"
+            />
+            <Text
+              size="h5"
+              textAlign="center"
+              font="Bold"
+              color="primary"
+            >
+              Revolutionizing Credential Verification and Screening
+            </Text>
+            <FlatList
+              align="middle"
+              marginTop="l"
+              gap="l"
+              scrollEnabled={false}
+              data={checkItem}
+              renderItem={({ item }) => (
+                <View row align="center" gap="s">
+                  <Icon name="Checked" size="m" />
+                  <Text
+                    style={{
+                      fontSize: 14,
+                    }}
+                    font="Medium"
+                    color="Text"
+                  >
+                    {item}
+                  </Text>
                 </View>
+              )}
+            />
+          </View>
+          <View flex align="bottom" gap='b'>
+            <Image
+              src="Thumb"
+              height={275}
+              width={274}
+              alignSelf="center"
+              resizeMode="contain"
+            />
+            <View>
+              <Button
+                height={66}
+                type="Solid"
+                background="#A85155"
+                label="continue"
+                onPress={() => props.navigation.navigate('Login')}
+              />
             </View>
-        </ImageBackground>
-    )
-}
+          </View>
+        </View>
+      </ImageBackground>
+    // </Page>
+  );
+};
 
-export default AlfredWelcome
+export default AlfredWelcome;

@@ -55,6 +55,7 @@ export interface ButtonProps extends PressableProps {
     texyStyle?:TextStyle
     background?: boolean
     width?: number
+    height?: number
 }
 export type ImageProps = {
     serverPath?: string;
