@@ -1,0 +1,18 @@
+export default {
+    // BackgroundImage: require('./BackgroundImage.png'),
+    Logo: require('./logo.png'),
+    Apple: require('./apple.png'),
+    Google: require('./google.png'),
+    Profile: require("./create-profile.png"),
+    User1: require("./user1.png"),
+    Post: require("./view.png"),
+    User2: require("./user2.png"),
+    User3: require("./user3.png"),
+    User4: require("./user4.png"),
+    Flag2: require("./flag2.png"),
+    Flag3: require("./flag3.png"),
+    Flag4: require("./flag4.png"),
+    Lock: require("./Lock.png"),
+    Send: require("./send.png"),
+    Sphere: require("./sphere.png"),
+}
