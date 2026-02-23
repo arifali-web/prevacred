@@ -1,6 +1,6 @@
 import { Button, Pressable, Text, View } from '@components';
 import React from 'react';
-// import Modal from 'react-native-modal';
+import Modal from 'react-native-modal';
 
 export function MyModal({
   isVisible,

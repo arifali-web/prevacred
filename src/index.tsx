@@ -15,8 +15,8 @@ function App() {
   }, []);
 
   console.log('ThemeProvider:', ThemeProvider);
-console.log('Root:', Root);
-console.log('GestureHandlerRootView:', GestureHandlerRootView);
+  console.log('Root:', Root);
+  console.log('GestureHandlerRootView:', GestureHandlerRootView);
 
   return (
     <ThemeProvider>

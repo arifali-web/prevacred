@@ -3,7 +3,7 @@ import { Pressable, Text } from '.';
 import { ButtonProps } from './types';
 import { useFormSubmit } from '../form';
 import { ActivityIndicator } from 'react-native';
-// import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 
 export const Button = ({ style, type = 'Solid', ...props }: ButtonProps) => {
   const BorderColor = {
@@ -34,12 +34,12 @@ export const Button = ({ style, type = 'Solid', ...props }: ButtonProps) => {
   );
 
   return (
-    // <LinearGradient
-    //   style={{ borderRadius: 14 }}
-    //   colors={['#A85155', '#DB3F50']}
-    //   start={{ x: 0, y: 0 }}
-    //   end={{ x: 1, y: 0 }}
-    // >
+    <LinearGradient
+      style={{ borderRadius: 60 }}
+      colors={['#A85155', '#DB3F50']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+    >
     <Pressable
       // borderWidth={1}
       width={props.width ? props.width : '100%'}
@@ -67,6 +67,6 @@ export const Button = ({ style, type = 'Solid', ...props }: ButtonProps) => {
         />
       )}
     </Pressable>
-    // </LinearGradient>
+    </LinearGradient>
   );
 };

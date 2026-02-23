@@ -54,16 +54,15 @@ export const BaseInput = forwardRef(
       },
     }));
     return (
-      <View gap="s" width={props.with}>
+      <View gap="s" width={props.with} style={props.style}>
         {!!props.label && <Text font="Bold">{props.label}</Text>}
         <AnimatedView
           row
           // height={props.multiline ? 120 : sizes.control.height}
-          height={props.multiline ? 120 : props?.height || sizes.control.height}
+          height={props.multiline ? 120 : 54.61}
           // borderWidth={1}
           borderRadius={props.purpose === 'Search' ? 'xl' : 'b'}
-          backgroundColor='translucentBackground'
-        
+          backgroundColor="translucentBackground"
           paddingHorizontal
           shadow={props.purpose === 'Search' ? true : false}
           //@ts-ignore

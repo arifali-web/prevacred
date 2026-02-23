@@ -1,11 +1,11 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Platform } from 'react-native';
 import Home from './Home';
-import Agents from './Agents';
-import State from './State';
-import Listings from './Listings';
-import Group from './Group';
-import {Icon} from '@components';
+import { Header, Icon, SecHeader, TabIcon, View } from '@components';
+import QrCode from './QrCode';
+import RenewalAlerts from './RenewalAlerts';
+import Notification from './Notification';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,59 +13,95 @@ const UserTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerShown: false,
-        // tabBarShowLabel: false,
-        tabBarStyle: {
-          zIndex: -1111111111,
-          elevation: -3,
+        headerShown: true,
+        header(props: any) {
+          return <SecHeader {...props} />;
         },
-      }}>
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          position: 'absolute',
+          // left: 18,
+          // right: 18,
+          // bottom: 18,
+          // height: 78,
+          // borderRadius: 28,
+          backgroundColor: '#1D2326', // dark
+          borderTopWidth: 0, // remove default line
+          // shadow
+          shadowColor: '#000',
+          shadowOpacity: 0.18,
+          shadowRadius: 20,
+          shadowOffset: { width: 0, height: 10 },
+          elevation: 12,
+          paddingBottom: Platform.OS === 'ios' ? 10 : 12,
+          paddingTop: 0,
+        },
+
+        tabBarItemStyle: {
+          // icons center
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => {
-            return <Icon name={focused ? 'Home' : 'HomeDull'} size="s" />;
+          header(props: any) {
+            return <Header {...props} />;
           },
+          tabBarIcon: ({ focused }: any) => (
+            <TabIcon
+              focused={focused}
+              activeName="Home" // or "HomeDull"
+            />
+          ),
         }}
       />
+
+      {/* Example 2 */}
+
       <Tab.Screen
-        name="Agents"
-        component={Agents}
+        name="QR Codes"
+        component={QrCode}
         options={{
-          tabBarIcon: ({focused}) => {
-            return <Icon name={focused ? 'Group' : 'GroupDull'} size="s" />;
-          },
-        }}
-      />
-      <Tab.Screen
-        name="Listing"
-        component={Listings}
-        options={{
-          tabBarIcon: ({focused}) => {
-            return <Icon name={focused ? 'State' : 'StateDull'} size="s" />;
-          },
-        }}
-      />
-      <Tab.Screen
-        name="States"
-        component={State}
-        options={{
-          tabBarIcon: ({focused}) => {
-            return <Icon name={focused ? 'Map' : 'MapDull'} size="s" />;
-          },
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} activeName="Qr" />
+          ),
         }}
       />
 
       <Tab.Screen
-        name="Group"
-        component={Group}
+        name="Renewal Alerts"
+        component={RenewalAlerts}
         options={{
-          tabBarIcon: ({focused}) => {
-            return <Icon name={focused ? 'Comment' : 'CommentDull'} size="s" />;
-          },
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} activeName="Docs" />
+          ),
         }}
       />
+
+      <Tab.Screen
+        name="Notifications"
+        component={Notification}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} activeName="Bell" />
+          ),
+        }}
+      />
+
+      {/* <Tab.Screen
+        name="Add Document"
+        component={AddDocument}
+
+        // options={{
+        //   tabBarIcon: ({ focused }) => (
+        //     <TabIcon focused={focused} activeName="Bell" />
+        //   ),
+        // }}
+      /> */}
     </Tab.Navigator>
   );
 };

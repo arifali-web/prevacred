@@ -153,24 +153,24 @@ export const Image = withStyleProps<
       : {}),
   },
 }));
-export const Icon = withStyleProps<IconProps>(
-  forwardRef(({ name, ...props }, ref) => {
-    return (
-      <ImageBase
-        ref={ref}
-        resizeMode="contain"
-        {...props}
-        source={props.source || icons[name]}
-      />
-    );
-  }),
-)(options => ({
-  style: {
-    height: sizes.icon[options.conditions.size || 's'],
-    width: sizes.icon[options.conditions.size || 's'],
-    tintColor: options.colors[options.conditions.color],
-  },
-}));
+// export const Icon = withStyleProps<IconProps>(
+//   forwardRef(({ name, ...props }, ref) => {
+//     return (
+//       <ImageBase
+//         ref={ref}
+//         resizeMode="contain"
+//         {...props}
+//         source={props.source || icons[name]}
+//       />
+//     );
+//   }),
+// )(options => ({
+//   style: {
+//     height: sizes.icon[options.conditions.size || 's'],
+//     width: sizes.icon[options.conditions.size || 's'],
+//     tintColor: options.colors[options.conditions.color],
+//   },
+// }));
 // export const Text = withStyleProps<LayoutTextProp>(
 //   forwardRef(function (prop, ref) {
 //     const { t, i18n } = useTranslation();
@@ -200,6 +200,38 @@ export const Icon = withStyleProps<IconProps>(
 //     textDecorationLine: options.conditions.line,
 //   },
 // }));
+
+
+export const Icon = withStyleProps<IconProps>(
+  forwardRef(({ name, tintColor, style, ...rest }: any, ref) => {
+    return (
+      <ImageBase
+        ref={ref}
+        resizeMode="contain"
+        source={rest.source || icons[name]}
+        {...rest}
+        style={[
+          style, // <-- withStyleProps / user style (base)
+          tintColor ? { tintColor } : null, // <-- ALWAYS last (override)
+        ]}
+      />
+    );
+  }),
+)(options => {
+  const sizeKey = options.conditions.size || 's';
+  const colorKey = options.conditions.color;
+
+  return {
+    style: {
+      height: sizes.icon[sizeKey],
+      width: sizes.icon[sizeKey],
+      ...(colorKey ? { tintColor: options.colors[colorKey] } : {}),
+    },
+  };
+});
+
+
+
 
 
 export const Text = withStyleProps<LayoutTextProp>(

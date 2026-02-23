@@ -4,5 +4,17 @@ export default {
     Checked: require("./checked.png"),
     Lock: require("./Lock.png"),
     User: require("./user.png"),
-    
+    Eye: require("./Eye.png"),
+    EyeOpen: require("./EyeSlash.png"),
+    Home: require("./home.png"),
+    Qr: require("./qr.png"),
+    Bell: require("./bell.png"),
+    Docs: require("./doc.png"),
+    Menu: require("./menu.png"),
+    ArrowRight: require("./rightArrow.png"),
+    ArrowRight2: require("./rightArrow2.png"),
+    Support: require("./support.png"),
+    Folder: require("./folder.png"),
+    Shield: require("./shield.png"),
+    Edit : require("./edit.png"),
 }

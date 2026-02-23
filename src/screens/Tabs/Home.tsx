@@ -1,115 +1,136 @@
 import {
-  Card,
   FlatList,
+  HorizontalCardList,
   Icon,
   Image,
+  ImageBackground,
   Page,
   Pressable,
+  Text,
   TextInput,
   View,
 } from '@components';
 import React from 'react';
-import {UserProps} from '..';
-import {Platform} from 'react-native';
+import { UserProps } from '..';
+import { Platform } from 'react-native';
+import QRCodesCard from '../../components/common/QRCodesCard';
+import { MyCarousel } from '../../components/common/Carousel';
 
 const data = [
   {
     id: 1,
-    user: 'User1',
-    post: 'Post',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    state: 'Florida',
-    name: 'Matthew Vargas',
+    title: 'QR',
+    subtitle: 'Codes',
+    icon: 'Qr',
   },
   {
     id: 2,
-    user: 'User1',
-    post: 'Post',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    state: 'Florida',
-    name: 'Matthew Vargas',
+    title: 'Customer',
+    subtitle: 'Support',
+    icon: 'Support',
   },
   {
     id: 3,
-    user: 'User1',
-    post: 'Post',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    state: 'Florida',
-    name: 'Matthew Vargas',
+    title: 'Renewal',
+    subtitle: 'Alerts',
+    icon: 'Docs',
   },
 ];
 
+const cards = ['img1', 'img2'];
+
 export default function Home(props: UserProps<'Tabs'>) {
+  console.log(props, 'props');
+
   return (
     <View
-      paddingTop={Platform.OS === 'ios' ? 'xl' : 's'}
+      paddingTop={Platform.OS === 'ios' ? 'l' : 's'}
       backgroundColor="onPrimary"
       flex
       gap="b"
       paddingHorizontal
-      borderRadius="xs">
-      <View row space="between">
-        <Pressable onPress={() => props.navigation.navigate('Profile')}>
-          <Image src="Sphere" width={140} height={41} resizeMode="contain" />
+      borderRadius="xs"
+    >
+      <MyCarousel post={cards} />
+
+      <ImageBackground
+        src="BtnBg" // if BtnBg is an imported image
+        style={{
+          height: 81,
+          width: '100%',
+          borderRadius: 12,
+          overflow: 'hidden',
+          boxShadow: '0px 4px 4px 0px #00000040',
+        }}
+        // imageStyle={{ borderRadius: 12 }}
+        resizeMode="stretch"
+      >
+        <Pressable
+          onPress={() => {
+            console.log(props.navigation.navigate('AddDocument'));
+            props.navigation.navigate('AddDocument');
+          }}
+          row
+          align="center"
+          space="between"
+          padding
+        >
+          <Icon name="Folder" size="l" />{' '}
+          <Text
+            size="h3"
+            font="SemiBold"
+            color="white"
+            text="Upload Document"
+          />{' '}
+          <Icon name="ArrowRight" size="xs" />
         </Pressable>
-        <View row gap>
-          <Pressable
-            onPress={() => props.navigation.navigate('Message')}
-            align="mid"
-            backgroundColor="background"
-            width={40}
-            height={40}
-            borderRadius="s">
-            <Icon name="Message" size="s" />
-          </Pressable>
-          <Pressable
-            onPress={() => props.navigation.navigate('Notification')}
-            align="mid"
-            backgroundColor="background"
-            width={40}
-            height={40}
-            borderRadius="s">
-            <Icon name="Notification" size="s" />
-          </Pressable>
-        </View>
-      </View>
-      <Page>
-        <View gap="s">
-          <TextInput
-            id="search"
-            type="text"
-            placeholder="Search"
-            left={() => <Icon name="Search" size="s" />}
-            leftDull={() => <Icon name="Search" size="s" />}
-            right={() => <Icon name="Filter" size="s" />}
-            rightDull={() => <Icon name="Filter" size="s" />}
-          />
-          <TextInput
-            id="post"
-            type="text"
-            placeholder="Whats on your mind?"
-            right={() => <Icon name="Gallery" size="s" />}
-            rightDull={() => <Icon name="Gallery" size="s" />}
-            onPress={() => props.navigation.navigate('CreatePost')}
-          />
-        </View>
+      </ImageBackground>
+      <ImageBackground
+        src="BtnBg"
+        style={{
+          height: 81,
+          width: '100%',
+          borderRadius: 12,
+          overflow: 'hidden',
+          boxShadow: '0px 4px 4px 0px #00000040',
+        }}
+        // imageStyle={{ borderRadius: 12 }}
+        resizeMode="stretch"
+      >
+        <Pressable
+          onPress={() => props.navigation.navigate('EditDocument')}
+          row
+          align="center"
+          space="between"
+          padding
+        >
+          <Icon name="Shield" size="l" />{' '}
+          <Text size="h3" font="SemiBold" color="white" text="Renewal Alerts" />{' '}
+          <Icon name="ArrowRight" size="xs" />
+        </Pressable>
+      </ImageBackground>
+
+      <View paddingVertical>
+        <Text size="h3" font="Medium" color="primary" text="Quick Actions" />
         <FlatList
           data={data}
           marginTop="s"
-          scrollEnabled={false}
-          renderItem={({item}) => (
-            <View
-              marginVertical="s"
-              backgroundColor="background"
-              borderRadius="b">
-              <Card {...item} navigation={props.navigation} />
-            </View>
+          scrollEnabled
+          keyExtractor={item => item.id.toString()}
+          horizontal
+          paddingVertical
+          row
+          gap="b"
+          marginLeft="xs"
+          width={131.75555419921875}
+          renderItem={({ item }) => (
+            <QRCodesCard
+              item={item}
+              // onPress={() => props.navigation.navigate('')}
+            />
           )}
         />
-      </Page>
+      </View>
     </View>
   );
 }

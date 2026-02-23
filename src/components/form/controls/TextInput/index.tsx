@@ -51,7 +51,6 @@ export const TextInput = (props: TextInputProps) => {
   })
   return (
     <BaseInput
-
       {...props}
       {...(props?.type == "password" ? {
         secureTextEntry: isVisible,

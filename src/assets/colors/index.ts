@@ -2,9 +2,10 @@ export default {
   light: {
     primary: '#545454',
     onPrimary: '#FFFFFF',
-    primary2: '#78471C',
+    primary2: '#DB515A',
     primaryContainer: '#E2E2E2',
     onPrimaryContainer: '#3A4750',
+    lightgrey: '#E0E2E5',
 
     btn: '#F2F2F2',
     onBtn: '#A85155',
@@ -19,7 +20,7 @@ export default {
     commentBox: '#E8E8E8',
     Text: '#5E5E5E',
     Text2: '#474747',
-    text3: '#A85155',
+    text3: '#4B4B4B',
     inputBorder: '#A8A8A9',
     heading: '#1F1F1F',
     subHeading: '#292d32',
@@ -32,10 +33,12 @@ export default {
     // secondaryContainer: 'rgb(197, 231, 255)',
     // onSecondaryContainer: 'rgb(0, 30, 45)',
 
-    success: '#7CCA68',
+    success: '#005103',
     onSuccess: 'rgb(255, 255, 255)',
     successContainer: 'rgb(255, 218, 214)',
     onSuccessContainer: 'rgb(65, 0, 2)',
+
+    pending: '#D0B100',
 
     info: '#00C0D0',
     onInfo: 'rgb(255, 255, 255)',
@@ -47,7 +50,7 @@ export default {
     warningContainer: '#fef5e8',
     onWarningContainer: '#FFC063',
 
-    error: '#e64f4f',
+    error: '#A80F19',
     onError: 'rgb(255, 255, 255)',
     errorContainer: 'rgb(255, 218, 214)',
     onErrorContainer: 'rgb(65, 0, 2)',

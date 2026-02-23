@@ -87,7 +87,7 @@ const AlfredWelcome = (props: UserProps<'Welcome'>) => {
               <Button
                 height={66}
                 type="Solid"
-                background="#A85155"
+                background
                 label="continue"
                 onPress={() => props.navigation.navigate('Login')}
               />

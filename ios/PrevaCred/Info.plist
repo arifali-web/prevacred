@@ -35,6 +35,28 @@
 	<string></string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires access to photos to enable user to upload images for various purposes such as advertisement banners or chat attachments.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Turning on location services allow us to show the nearby service providers available in the user's vicinity who are offering services.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Turning on location services allow us to show the nearby service providers available in the user's vicinity who are offering services.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Turning on location services allow us to show the nearby service providers available in the user's vicinity who are offering services.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App requires microphone permission to record audio for Audio Msg</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Example: You should fill this in</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app requires access to photos to enable user to upload images for various purposes such as advertisement banners or chat attachments.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to photos to enable user to upload images for various purposes such as advertisement banners or chat attachments.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Example: You should fill this in</string>
+	<key>NSVideoSubscriberAccountUsageDescription</key>
+	<string>Example: You should fill this in</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Light.ttf</string>

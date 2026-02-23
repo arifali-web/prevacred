@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Alert, AnimatableStringValue } from 'react-native';
-import { Ask } from '../../../alerts';
+// import { Ask } from '../../../alerts';
 import { useForm } from '../../wrapper';
-// import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker'
+import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker'
 import { colors } from '@assets';
 
 type Props = {
@@ -35,7 +35,7 @@ export const MediaPicker = (props: Props) => {
         // lastImage:Value[Value.length-1],
         Error,
         images: Value,
-        openPicker({ override }) {
+        openPicker({ override }:any) {
           // setFocus(true)
           Alert.alert('Add Image', 'Please select', [
             {
