@@ -115,7 +115,6 @@ export default function ScanDocumentCameraScreen() {
         <View style={styles.scanWrap}>
           <View style={styles.scanBox} />
 
-          {/* corners */}
           <View style={[styles.corner, styles.tl]} />
           <View style={[styles.corner, styles.tr]} />
           <View style={[styles.corner, styles.bl]} />

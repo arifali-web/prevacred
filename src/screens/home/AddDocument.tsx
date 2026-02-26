@@ -3,9 +3,11 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Platform } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { UserProps } from '.';
+import { UserProps } from '..';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-export default function AddDocument(props: UserProps<'AddDocument'>) {
+export default function AddDocument() {
+  const navigation = useNavigation<StackNavigationProp<any, any>>();
   return (
     <View
       paddingTop={Platform.OS === 'ios' ? 'l' : 's'}
@@ -51,7 +53,9 @@ export default function AddDocument(props: UserProps<'AddDocument'>) {
         end={{ x: 1, y: 1 }}
       >
         <Pressable
-          onPress={() => props.navigation.navigate('ScanDocumentCameraScreen')}
+          onPress={() =>
+            navigation.navigate('Home', { screen: 'Scan Document Camera' })
+          }
           align="mid"
           width={'100%'}
           height={63}
@@ -80,7 +84,15 @@ export default function AddDocument(props: UserProps<'AddDocument'>) {
         start={{ x: 1, y: 0 }}
         end={{ x: 1, y: 1 }}
       >
-        <Pressable align="mid" width={'100%'} height={63} borderRadius="l">
+        <Pressable
+          onPress={() =>
+            navigation.navigate('Home', { screen: 'EditDocument' })
+          }
+          align="mid"
+          width={'100%'}
+          height={63}
+          borderRadius="l"
+        >
           <Text color="white" style={{ fontSize: 15 }} font="SemiBold">
             Upload Document
           </Text>

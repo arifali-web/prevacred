@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@react-native/new-app-screen": "0.80.0",
-    "@react-navigation/bottom-tabs": "^6.6.1",
-    "@react-navigation/drawer": "^6",
-    "@react-navigation/native": "^6.1.18",
-    "@react-navigation/stack": "^6.4.1",
+     "@react-navigation/bottom-tabs": "^7.0.3",
+    "@react-navigation/drawer": "^7.1.1",
+    "@react-navigation/native": "^7.0.0",
+    "@react-navigation/stack": "^7.0.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "google-libphonenumber": "^3.2.44",
     "i18next": "^25.8.11",
@@ -28,7 +28,7 @@
     "react-native-reanimated": "4.1.3",
     "react-native-reanimated-carousel": "^4.0.3",
     "react-native-safe-area-context": "^5.5.2",
-    "react-native-screens": "^4.18.0",
+    "react-native-screens": "4.16.0",
     "react-native-splash-screen": "^3.3.0",
     "react-native-vision-camera": "^4.7.3",
     "react-native-worklets": "0.5.0"

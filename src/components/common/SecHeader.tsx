@@ -2,11 +2,15 @@ import { Icon, Pressable, Text, View } from '@components';
 import React from 'react';
 import { Platform } from 'react-native';
 
-export function SecHeader({ text, hide, ...props }: any) {
+export function SecHeader({ text, hide, route, options, ...props }: any) {
   const currentRouteName =
     props.navigation.getState().routes[props.navigation.getState().index].name;
 
   console.log(currentRouteName);
+
+  const title = options?.title ?? route?.name;
+
+  console.log(title, 'title //////');
 
   return (
     <View
@@ -29,7 +33,7 @@ export function SecHeader({ text, hide, ...props }: any) {
       <Text
         font="SemiBold"
         style={{ fontSize: 18, color: '#232323' }}
-        text={text || currentRouteName}
+        text={text || title}
       />
       {hide || currentRouteName === 'Rules' ? (
         <View width={55} />

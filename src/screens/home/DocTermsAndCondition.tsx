@@ -1,9 +1,12 @@
 import { LinearGradientButton, Text, View } from '@components';
 import React from 'react';
 import { Platform } from 'react-native';
-import { UserProps } from '.';
+import { UserProps } from '..';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
-function DocTermsAndCondition(props: UserProps<'TermsandConditions'>) {
+function DocTermsAndCondition() {
+  const navigation = useNavigation<StackNavigationProp<any, any>>();
   return (
     <View
       paddingTop={Platform.OS === 'ios' ? 'l' : 's'}
@@ -34,7 +37,9 @@ function DocTermsAndCondition(props: UserProps<'TermsandConditions'>) {
       </Text>
       <LinearGradientButton
         title="I Agree"
-        onPress={() => props.navigation.navigate('BackgroundScreening')}
+        onPress={() =>
+          navigation.navigate('Home', { screen: 'Background Screening' })
+        }
       />
     </View>
   );

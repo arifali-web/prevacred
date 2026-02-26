@@ -1,17 +1,14 @@
-import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerContent } from '@components';
-import QrCode from '../Tabs/QrCode';
-import RenewalAlerts from '../Tabs/RenewalAlerts';
-import Home from '../Tabs/Home';
-import UserTabs from '../Tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import React from 'react';
+import UserTabs from './TabNavigator';
 
 const Drawer = createDrawerNavigator();
 
-export const DrawerTab = () => {
+function DrawerNavigator() {
   return (
     <Drawer.Navigator
-      initialRouteName="Tabs"
+      initialRouteName="HomeDrawer"
       screenOptions={{
         headerShown: false,
         drawerStyle: {
@@ -22,12 +19,18 @@ export const DrawerTab = () => {
       }}
       drawerContent={(props: any) => <DrawerContent {...props} />}
     >
-      {/* <Drawer.Screen name="Tabs" component={UserTabs} /> */}
-      <Drawer.Screen name="QR Code" component={QrCode} />
+      <Drawer.Screen
+        name="HomeDrawer"
+        component={UserTabs}
+        options={{ title: 'Home' }}
+      />
+      {/* <Drawer.Screen name="QR Code" component={QrCode} /> */}
       {/* <Drawer.Screen name="Customer Support" component={CustomerSupport} /> */}
-      <Drawer.Screen name="Renewal Alerts" component={RenewalAlerts} />
+      {/* <Drawer.Screen name="Renewal Alerts" component={RenewalAlerts} /> */}
       {/* <Drawer.Screen name="Terms and Conditions" component={Terms} /> */}
       {/* Logout screen optional */}
     </Drawer.Navigator>
   );
-};
+}
+
+export default DrawerNavigator;

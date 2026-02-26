@@ -30,8 +30,6 @@ export const RenewalCard = ({ item }: any) => {
         space="between"
         padding
         borderRadius="b"
-        shadow
-        // marginHorizontal="b"
         style={
           {
             // alignSelf: 'stretch',
@@ -90,7 +88,7 @@ export const RenewalCard = ({ item }: any) => {
         </View>
 
         {/* RIGHT TIME */}
-        <View style={{ marginLeft: 10, alignSelf: 'flex-start' }}>
+        <View style={{ marginLeft: 10, alignSelf: 'flex-start', marginTop: 2 }}>
           <Text
             font="SemiBold"
             style={{
@@ -100,9 +98,6 @@ export const RenewalCard = ({ item }: any) => {
           >
             {item?.time || '36 min ago'}
           </Text>
-
-          {/* Optional arrow icon */}
-          {/* <Icon name="ArrowRight2" size="xs" /> */}
         </View>
       </View>
     </LinearGradient>

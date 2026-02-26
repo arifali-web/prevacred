@@ -1,6 +1,7 @@
 import { Card, FlatList, Icon, Image, Text, View } from '@components';
 import React from 'react';
 import { Platform } from 'react-native';
+import { UserProps } from '..';
 
 const data = [
   {
@@ -23,7 +24,7 @@ const data = [
   },
 ];
 
-const QrCode = () => {
+const QrCode = (props: UserProps<'Tabs'>) => {
   return (
     <View
       flex
@@ -54,7 +55,12 @@ const QrCode = () => {
         scrollEnabled={false}
         width={'100%'}
         gap
-        renderItem={({ item }) => <Card item={item} />}
+        renderItem={({ item }) => (
+          <Card
+            item={item}
+            onPress={() => props.navigation.navigate('QrInner')}
+          />
+        )}
       />
     </View>
   );

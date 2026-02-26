@@ -7,11 +7,13 @@ import {
   TextInput,
   View,
 } from '@components';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { Platform, TextInputBase } from 'react-native';
-import { UserProps } from '.';
+import { Platform } from 'react-native';
 
-function EditDocument(props: UserProps<'EditDocument'>) {
+function EditDocument() {
+  const navigation = useNavigation<StackNavigationProp<any, any>>();
   return (
     <View
       paddingTop={Platform.OS === 'ios' ? 'l' : 's'}
@@ -64,7 +66,11 @@ function EditDocument(props: UserProps<'EditDocument'>) {
 
       <LinearGradientButton
         title="Continue"
-        onPress={() => props.navigation.navigate('TermsandConditions')}
+        onPress={() =>
+          navigation.navigate('Home', {
+            screen: 'DocTermsAndCondition',
+          })
+        }
       />
     </View>
   );

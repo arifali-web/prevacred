@@ -1,7 +1,6 @@
 export default {
     // BackgroundImage: require('./BackgroundImage.png'),
     Logo: require('./logo.png'),
-    Profile: require("./create-profile.png"),
     User: require("./user.png"),
     Post: require("./view.png"),
     Lock: require("./Lock.png"),
@@ -19,5 +18,17 @@ export default {
     BtnBg: require("./btnBg.png"),
     Union: require('./union.png'),
     Doc: require('./doc.png'),
-    DocImg: require('./docImg.png')
+    DocImg: require('./docImg.png'),
+    NotificationGif: require('./notificationGif.gif'),
+    Phone: require('./phone.png'),
+    Mail: require('./mail.png'),
+    CustomerSupBG: require('./customerSupBg.png'),
+    IdIcon: require('./idIcon.png'),
+    IdCard: require('./idCard.png'),
+    CameraIcon: require('./camera.png'),
+    SignUpIcon: require('./signupIcon.png'),
+    ProfileIcon: require('./imgPicker.png'),
+    Upload: require('./upload.png'),
+    Delete: require('./delete.png'),
+    OtpIcon: require('./otpIcon.png'),
 }

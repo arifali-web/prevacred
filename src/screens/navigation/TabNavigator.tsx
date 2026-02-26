@@ -1,12 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Platform } from 'react-native';
-import Home from './Home';
+import Home from '../home/Home';
 import { Header, Icon, SecHeader, TabIcon, View } from '@components';
-import QrCode from './QrCode';
-import RenewalAlerts from './RenewalAlerts';
-import Notification from './Notification';
-
+import { HomeStackNavigator } from './HomeStackNavigator';
+import RenewalAlerts from '../Tabs/RenewalAlerts';
+import QrCode from '../Tabs/QrCode';
+import Notification from '../Tabs/Notification';
 const Tab = createBottomTabNavigator();
 
 const UserTabs = () => {
@@ -34,7 +34,8 @@ const UserTabs = () => {
           shadowOffset: { width: 0, height: 10 },
           elevation: 12,
           paddingBottom: Platform.OS === 'ios' ? 10 : 12,
-          paddingTop: 0,
+          paddingTop: Platform.OS === 'ios' ? 10 : 10,
+          height: Platform.OS === 'ios' ? 70 : 55,
         },
 
         tabBarItemStyle: {
@@ -46,11 +47,9 @@ const UserTabs = () => {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeStackNavigator}
         options={{
-          header(props: any) {
-            return <Header {...props} />;
-          },
+          headerShown: false,
           tabBarIcon: ({ focused }: any) => (
             <TabIcon
               focused={focused}

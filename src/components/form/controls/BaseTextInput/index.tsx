@@ -60,13 +60,13 @@ export const BaseInput = forwardRef(
           row
           // height={props.multiline ? 120 : sizes.control.height}
           height={props.multiline ? 120 : 54.61}
-          // borderWidth={1}
+          borderWidth={1}
           borderRadius={props.purpose === 'Search' ? 'xl' : 'b'}
           backgroundColor="translucentBackground"
           paddingHorizontal
           shadow={props.purpose === 'Search' ? true : false}
           //@ts-ignore
-          style={[style.container, { gap: props.left ? 10 : 0 }]}
+          style={[style.container, props.style, { gap: props.left ? 10 : 0 }]}
         >
           <View align="mid">
             {/* {props.left?.()} */}

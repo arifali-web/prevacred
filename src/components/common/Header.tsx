@@ -5,8 +5,11 @@ import React from 'react';
 import { Platform, Pressable } from 'react-native';
 type DrawerNavProp = DrawerNavigationProp<any>;
 export function Header() {
-  const navigation = useNavigation<DrawerNavProp>();
-  console.log(navigation, 'navigation');
+  const navigation = useNavigation();
+
+  const openDrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer());
+  };
 
   return (
     <View
@@ -25,7 +28,7 @@ export function Header() {
           <Text size="h6" font="Medium" color="primary" text="Joyce Oxford" />
         </View>
       </View>
-      <Pressable onPress={() => navigation.openDrawer()}>
+      <Pressable onPress={openDrawer}>
         <Icon name="Menu" size="s" />
       </Pressable>
       {/* <Pressable onPress={() => navigation.navigate('Info')}>

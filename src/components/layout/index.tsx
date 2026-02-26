@@ -201,7 +201,6 @@ export const Image = withStyleProps<
 //   },
 // }));
 
-
 export const Icon = withStyleProps<IconProps>(
   forwardRef(({ name, tintColor, style, ...rest }: any, ref) => {
     return (
@@ -230,10 +229,6 @@ export const Icon = withStyleProps<IconProps>(
   };
 });
 
-
-
-
-
 export const Text = withStyleProps<LayoutTextProp>(
   forwardRef(function Text(prop, ref) {
     const { text, children, ...rest } = prop;
@@ -246,8 +241,8 @@ export const Text = withStyleProps<LayoutTextProp>(
     );
   }),
 )(options => {
-  console.log("FONT CONDITION:", options.conditions.font);
-  console.log("FONTS KEYS:", Object.keys(options.fonts));
+  // console.log("FONT CONDITION:", options.conditions.font);
+  // console.log("FONTS KEYS:", Object.keys(options.fonts));
   const fontKey = options.conditions.font as string | undefined;
   const colorKey = options.conditions.color as string | undefined;
   const sizeKey = options.conditions.size as string | undefined;
@@ -270,13 +265,12 @@ export const Text = withStyleProps<LayoutTextProp>(
       fontFamily: resolvedFont,
       fontSize: resolvedSize,
       color: resolvedColor,
-      textAlign: options.conditions.textAlign === 'center' ? 'center' : undefined,
+      textAlign:
+        options.conditions.textAlign === 'center' ? 'center' : undefined,
       textDecorationLine: options.conditions.line,
     },
   };
 });
-
-
 
 const styles = StyleSheet.create({
   page: { flex: 1 },
