@@ -2,6 +2,7 @@ import { DrawerContent } from '@components';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 import UserTabs from './TabNavigator';
+import ScanDocumentCameraScreen from '../home/ScanDocumentCameraScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -23,6 +24,10 @@ function DrawerNavigator() {
         name="HomeDrawer"
         component={UserTabs}
         options={{ title: 'Home' }}
+      />
+      <Drawer.Screen
+        component={ScanDocumentCameraScreen}
+        name="ScanDocumentCameraScreen"
       />
       {/* <Drawer.Screen name="QR Code" component={QrCode} /> */}
       {/* <Drawer.Screen name="Customer Support" component={CustomerSupport} /> */}

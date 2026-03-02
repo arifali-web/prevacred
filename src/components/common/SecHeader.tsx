@@ -1,21 +1,24 @@
 import { Icon, Pressable, Text, View } from '@components';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Platform } from 'react-native';
 
 export function SecHeader({ text, hide, route, options, ...props }: any) {
+  const navigation = useNavigation();
+
+  const openDrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer());
+  };
+
   const currentRouteName =
     props.navigation.getState().routes[props.navigation.getState().index].name;
-
-  console.log(currentRouteName);
-
   const title = options?.title ?? route?.name;
-
-  console.log(title, 'title //////');
 
   return (
     <View
       paddingTop={Platform.OS === 'ios' ? 'xl' : 's'}
       paddingHorizontal
+      paddingBottom="s"
       row
       backgroundColor="white"
       space="between"
@@ -38,7 +41,7 @@ export function SecHeader({ text, hide, route, options, ...props }: any) {
       {hide || currentRouteName === 'Rules' ? (
         <View width={55} />
       ) : (
-        <Pressable onPress={() => props.navigation.navigate('Info')}>
+        <Pressable onPress={openDrawer}>
           <Icon name="Menu" size="s" />
         </Pressable>
       )}

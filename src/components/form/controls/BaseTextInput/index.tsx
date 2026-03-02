@@ -55,7 +55,7 @@ export const BaseInput = forwardRef(
     }));
     return (
       <View gap="s" width={props.with} style={props.style}>
-        {!!props.label && <Text font="Bold">{props.label}</Text>}
+        {!!props.label && <Text font="SemiBold">{props.label}</Text>}
         <AnimatedView
           row
           // height={props.multiline ? 120 : sizes.control.height}

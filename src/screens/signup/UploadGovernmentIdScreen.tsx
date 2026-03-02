@@ -44,15 +44,16 @@ export default function UploadGovernmentIdScreen(props: UserProps<'IdScreen'>) {
                   {firstImage?.path ? (
                     <Image
                       source={{ uri: firstImage?.path }}
-                      height={222}
+                      height={225}
                       width={'90%'}
+                      borderRadius="s"
                       // style={{ overflow: 'hidden' }}
                       resizeMode="cover"
                     />
                   ) : (
                     <Image
                       src={'IdCard'}
-                      height={262}
+                      height={225}
                       width={'90%'}
                       resizeMode="cover"
                     />
@@ -65,7 +66,7 @@ export default function UploadGovernmentIdScreen(props: UserProps<'IdScreen'>) {
                     <Image
                       src="Upload"
                       absolute
-                      bottom={0}
+                      bottom={-20}
                       right={-30}
                       height={48}
                       width={48}

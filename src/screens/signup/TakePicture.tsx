@@ -34,53 +34,6 @@ function TakePicture(props: UserProps<'TakePicture'>) {
       <Stepper total={4} currentIndex={1} />
       <Form>
         <View flex gap="l" marginTop="l">
-          {/* <Stepper total={4} currentIndex={2} />
-          <Stepper total={4} currentIndex={3} /> // last active */}
-          {/* <MediaPicker
-            id="profile"
-            type="image"
-            next="name"
-            max={1}
-            children={({ firstImage, Error, images, openPicker }) => {
-              console.log(firstImage, 'firstImage');
-              return (
-                <View align="mid" marginVertical>
-                  {firstImage?.path ? (
-                    <Image
-                      source={{ uri: firstImage?.path }}
-                      height={262}
-                      width={264}
-                      borderWidth={12}
-                      style={{ borderRadius: 131, borderColor: '#B9B9B9' }}
-                      resizeMode="cover"
-                    />
-                  ) : (
-                    <Image
-                      src={'ProfileIcon'}
-                      height={262}
-                      width={264}
-                      resizeMode="contain"
-                    />
-                  )}
-                  <Pressable
-                    onPress={() => {
-                      openPicker({ override: true });
-                      setImages(firstImage?.path);
-                    }}
-                  >
-                    <Image
-                      src="Upload"
-                      absolute
-                      bottom={15}
-                      right={-100}
-                      height={48}
-                      width={48}
-                    />
-                  </Pressable>
-                </View>
-              );
-            }}
-          /> */}
           <ImagePicker
             id="profile"
             type="image"
@@ -150,7 +103,7 @@ function TakePicture(props: UserProps<'TakePicture'>) {
             }}
           </ImagePicker>
           <Button
-            onPress={() => props.navigation.navigate('IdScreen')}
+            // onPress={() => props.navigation.navigate('IdScreen')}
             label="Proceed"
           />
         </View>

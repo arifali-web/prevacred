@@ -22,7 +22,9 @@ export function Header() {
       align="center"
     >
       <View row gap align="center">
-        <Image src="User" width={60} height={60} resizeMode="contain" />
+        <Pressable onPress={() => navigation.navigate({ name: 'EditProfile' })}>
+          <Image src="User" width={60} height={60} resizeMode="contain" />
+        </Pressable>
         <View>
           <Text size="h3" font="Bold" color="primary" text="Welcome Back" />
           <Text size="h6" font="Medium" color="primary" text="Joyce Oxford" />

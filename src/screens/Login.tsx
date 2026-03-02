@@ -88,7 +88,7 @@ const Login = (props: UserProps<'Login'>) => {
               background
             />
             <Pressable
-              // onPress={() => props.navigation.navigate('Signup')}
+              onPress={() => props.navigation.navigate('Signup')}
               row
               gap="xs"
               align="mid"

@@ -53,9 +53,7 @@ export default function AddDocument() {
         end={{ x: 1, y: 1 }}
       >
         <Pressable
-          onPress={() =>
-            navigation.navigate('Home', { screen: 'Scan Document Camera' })
-          }
+          onPress={() => navigation.navigate('ScanDocumentCameraScreen')}
           align="mid"
           width={'100%'}
           height={63}

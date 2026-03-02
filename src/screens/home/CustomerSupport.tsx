@@ -1,4 +1,4 @@
-import { LinearGradientButton, Text, View } from '@components';
+import { Image, LinearGradientButton, Text, View } from '@components';
 import React from 'react';
 import { Platform } from 'react-native';
 import { UserProps } from '..';
@@ -32,6 +32,13 @@ const CustomerSupport = () => {
         We respond within 4 business hours, you are not left wondering if
         someone will return you call or email inquiry.
       </Text>
+      <Image
+        src="Computer"
+        width={'100%'}
+        height={229}
+        resizeMode="contain"
+        marginVertical="l"
+      />
 
       <LinearGradientButton
         title="Contact Customer Support"

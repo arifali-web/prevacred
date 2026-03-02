@@ -9,12 +9,16 @@ import {
 } from 'react-native';
 import { Camera, useCameraDevice } from 'react-native-vision-camera';
 import ImagePicker from 'react-native-image-crop-picker';
+import { UserProps } from '..';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 const { width, height } = Dimensions.get('window');
 const SCAN_W = width * 0.82;
 const SCAN_H = SCAN_W * 1.35;
 
 export default function ScanDocumentCameraScreen() {
+  const navigation = useNavigation<StackNavigationProp<any, any>>();
   const cameraRef = useRef(null);
   const device = useCameraDevice('back');
 
@@ -58,6 +62,17 @@ export default function ScanDocumentCameraScreen() {
         cropping: true,
         compressImageQuality: 0.85,
         mediaType: 'photo',
+      });
+
+      console.log(path, 'path /////////');
+
+      console.log('Captured Image:', photo);
+      navigation.navigate('HomeDrawer', {
+        screen: 'Home',
+        params: {
+          screen: 'EditDocument',
+          params: { image: photo.path },
+        },
       });
 
       console.log('CROPPED:', cropped);
@@ -106,20 +121,20 @@ export default function ScanDocumentCameraScreen() {
       <View style={styles.overlay}>
         <View style={{ alignItems: 'center' }}>
           <Text style={styles.title}>Scan the Document</Text>
-          <Text style={styles.subTitle}>
+          {/* <Text style={styles.subTitle}>
             Place your card inside the rectangle.
-          </Text>
+          </Text> */}
         </View>
 
         {/* Scan frame */}
-        <View style={styles.scanWrap}>
+        {/* <View style={styles.scanWrap}>
           <View style={styles.scanBox} />
 
           <View style={[styles.corner, styles.tl]} />
           <View style={[styles.corner, styles.tr]} />
           <View style={[styles.corner, styles.bl]} />
           <View style={[styles.corner, styles.br]} />
-        </View>
+        </View> */}
 
         {/* Bottom button */}
         <TouchableOpacity

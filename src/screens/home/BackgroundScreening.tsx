@@ -1,4 +1,4 @@
-import { LinearGradientButton, Text, View } from '@components';
+import { Image, LinearGradientButton, Text, View } from '@components';
 import React from 'react';
 import { Platform } from 'react-native';
 
@@ -28,6 +28,15 @@ function BackgroundScreening() {
         entering buildings, events, construction sites, personal homes & is a
         security measure that keeps your work & personal environments safe
       </Text>
+
+      <Image
+        src="ThumbScan"
+        width={'100%'}
+        height={160}
+        resizeMode="contain"
+        marginVertical="xl"
+      />
+
       <LinearGradientButton title="Proceed" onPress={() => {}} />
     </View>
   );

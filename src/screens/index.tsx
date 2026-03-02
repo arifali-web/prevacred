@@ -18,6 +18,9 @@ import TakePicture from './signup/TakePicture';
 import UploadGovernmentIdScreen from './signup/UploadGovernmentIdScreen';
 import Otp from './signup/Otp';
 import VerificationCode from './signup/VerificationCode';
+import EditProfile from './EditProfile';
+import PaymentCardsScreen from './Tabs/PaymentCardsScreen';
+import ScanDocumentCameraScreen from './home/ScanDocumentCameraScreen';
 
 export type UserStackType = {
   Welcome: undefined;
@@ -40,6 +43,8 @@ export type UserStackType = {
   IdScreen: undefined;
   Otp: undefined;
   VerificationCode: undefined;
+  EditProfile: undefined;
+  PaymentScreen: undefined;
 };
 
 const Stack = createStackNavigator<UserStackType>();
@@ -127,6 +132,14 @@ export function Root(): React.JSX.Element {
         >
           {/* <Stack.Screen component={AddDocument} name="AddDocument" /> */}
           <Stack.Screen component={QrInner} name="QrInner" />
+          <Stack.Screen
+            component={EditProfile}
+            options={{
+              headerShown: false,
+            }}
+            name="EditProfile"
+          />
+          <Stack.Screen component={PaymentCardsScreen} name="PaymentScreen" />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>

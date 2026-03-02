@@ -17,4 +17,6 @@ export default {
     Folder: require("./folder.png"),
     Shield: require("./shield.png"),
     Edit : require("./edit.png"),
+    Logout: require("./logout.png"),
+    File: require("./file.png"),
 }

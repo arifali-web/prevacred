@@ -4,8 +4,6 @@ export default {
     User: require("./user.png"),
     Post: require("./view.png"),
     Lock: require("./Lock.png"),
-    Send: require("./send.png"),
-    Sphere: require("./sphere.png"),
     Thumb: require("./thumb.png"),
     WelcomeBg: require("./welcomebg.png"),
     LoginBg: require("./loginBg.png"),
@@ -31,4 +29,8 @@ export default {
     Upload: require('./upload.png'),
     Delete: require('./delete.png'),
     OtpIcon: require('./otpIcon.png'),
+    ThumbScan: require('./thumbScan.png'),
+    Computer: require('./computer.png'),
+    PaymentCardBg: require('./paymentCardBg.png'),
+    Chip: require('./chip.png'),
 }

@@ -35,10 +35,10 @@ export function HomeStackNavigator() {
       />
       <HomeStack.Screen name="AddDocument" component={AddDocument} />
       <HomeStack.Screen name="EditDocument" component={EditDocument} />
-      <HomeStack.Screen
+      {/* <HomeStack.Screen
         name="Scan Document Camera"
         component={ScanDocumentCameraScreen}
-      />
+      /> */}
       <HomeStack.Screen
         name="DocTermsAndCondition"
         component={DocTermsAndCondition}
