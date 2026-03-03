@@ -24,7 +24,7 @@ const data = [
     title: 'QR',
     subtitle: 'Codes',
     icon: 'Qr',
-    path: 'QRCodes',
+    path: 'QRCode',
   },
   {
     id: 2,
@@ -38,8 +38,7 @@ const data = [
     title: 'Renewal',
     subtitle: 'Alerts',
     icon: 'Docs',
-    path: 'Home',
-    screen: 'CustomerSupport',
+    path: 'RenewalAlert',
   },
 ];
 
@@ -107,7 +106,7 @@ export default function Home() {
         resizeMode="stretch"
       >
         <Pressable
-          // onPress={() => navigation.navigate('PaymentScreen')}
+          onPress={() => navigation.navigate('RenewalAlert')}
           row
           align="center"
           space="between"

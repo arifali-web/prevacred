@@ -31,7 +31,6 @@ export function HomeStackNavigator() {
             return <Header {...props} />;
           },
         }}
-        // options={{ title: 'Home' }}
       />
       <HomeStack.Screen name="AddDocument" component={AddDocument} />
       <HomeStack.Screen name="EditDocument" component={EditDocument} />
@@ -51,7 +50,7 @@ export function HomeStackNavigator() {
         name="CustomerSupport"
         component={CustomerSupport}
         options={{
-          title: 'Customer Support',
+          title: '',
         }}
       />
       <HomeStack.Screen

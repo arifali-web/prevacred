@@ -2,7 +2,19 @@ import { Pressable, Text } from '@components';
 import React from 'react';
 import { LinearGradient } from 'react-native-linear-gradient';
 
-export function LinearGradientButton({ title, onPress }: any) {
+type Props = {
+  title: string;
+  onPress: () => void;
+  color1?: string;
+  color2?: string;
+};
+
+export function LinearGradientButton({
+  title,
+  onPress,
+  color1 = '#A85155',
+  color2 = '#A20C13',
+}: Props) {
   return (
     <LinearGradient
       style={{
@@ -16,7 +28,7 @@ export function LinearGradientButton({ title, onPress }: any) {
         width: '100%',
         marginTop: 16,
       }}
-      colors={['#A85155', '#A20C13']}
+      colors={[color1, color2]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
     >

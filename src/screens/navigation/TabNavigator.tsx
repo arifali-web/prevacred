@@ -4,9 +4,10 @@ import { Platform } from 'react-native';
 import Home from '../home/Home';
 import { Header, Icon, SecHeader, TabIcon, View } from '@components';
 import { HomeStackNavigator } from './HomeStackNavigator';
-import RenewalAlerts from '../Tabs/RenewalAlerts';
-import QrCode from '../Tabs/QrCode';
-import Notification from '../Tabs/Notification';
+import QrCode from '../QrCode';
+import Notification from '../Notification';
+import RenewalAlerts from '../RenewalAlerts';
+import PaymentCardsScreen from '../PaymentCardsScreen';
 const Tab = createBottomTabNavigator();
 
 const UserTabs = () => {
@@ -51,10 +52,7 @@ const UserTabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }: any) => (
-            <TabIcon
-              focused={focused}
-              activeName="Home" // or "HomeDull"
-            />
+            <TabIcon focused={focused} activeName="Home" />
           ),
         }}
       />
@@ -62,7 +60,7 @@ const UserTabs = () => {
       {/* Example 2 */}
 
       <Tab.Screen
-        name="QR Codes"
+        name="QRCode"
         component={QrCode}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -72,7 +70,7 @@ const UserTabs = () => {
       />
 
       <Tab.Screen
-        name="Renewal Alerts"
+        name="RenewalAlert"
         component={RenewalAlerts}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -92,14 +90,13 @@ const UserTabs = () => {
       />
 
       {/* <Tab.Screen
-        name="Add Document"
-        component={AddDocument}
-
-        // options={{
-        //   tabBarIcon: ({ focused }) => (
-        //     <TabIcon focused={focused} activeName="Bell" />
-        //   ),
-        // }}
+        name="PaymentScreen"
+        component={PaymentCardsScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} activeName="Wallet" />
+          ),
+        }}
       /> */}
     </Tab.Navigator>
   );

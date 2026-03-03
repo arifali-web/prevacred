@@ -19,4 +19,6 @@ export default {
     Edit : require("./edit.png"),
     Logout: require("./logout.png"),
     File: require("./file.png"),
+    Close: require('./close.png'),
+    Wallet: require('./wallet.png')
 }

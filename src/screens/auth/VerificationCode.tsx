@@ -21,7 +21,7 @@ function VerificationCode() {
       paddingHorizontal
     >
       <Form>
-        <View flex style={{ gap: 150 }}>
+        <View flex style={{ gap: 150 }} paddingTop="xl">
           <View>
             <Text
               marginTop
@@ -42,7 +42,7 @@ function VerificationCode() {
 
           <OTPInput />
           <Button
-            onPress={() => props.navigation.navigate('IdScreen')}
+            // onPress={() => props.navigation.navigate('IdScreen')}
             label="Confirm"
           />
         </View>

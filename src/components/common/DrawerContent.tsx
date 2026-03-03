@@ -5,9 +5,19 @@ import { Platform } from 'react-native';
 
 const items = [
   { label: 'Home', route: 'HomeDrawer', icon: 'Home' },
-  { label: 'QR Code', route: 'QR Code', icon: 'Qr' }, // apne icon names yahan set karo
-  { label: 'Customer Support', route: 'CustomerSupport', icon: 'Support' },
-  { label: 'Renewal Alerts', route: 'Renewal Alerts', icon: 'Bell' },
+  { label: 'QR Code', route: 'QRCode', tab: 'HomeDrawer', icon: 'Qr' },
+  {
+    label: 'Customer Support',
+    route: 'CustomerSupport',
+    tab: 'HomeDrawer',
+    icon: 'Support',
+  },
+  {
+    label: 'Renewal Alerts',
+    tab: 'HomeDrawer',
+    route: 'RenewalAlert',
+    icon: 'Bell',
+  },
   {
     label: 'Terms and Conditions',
     route: 'Terms and Conditions',
@@ -77,7 +87,11 @@ export const DrawerContent = (props: any) => {
           return (
             <Pressable
               key={item.route}
-              onPress={() => props.navigation.navigate(item.route)}
+              onPress={() =>
+                item.tab
+                  ? props.navigation.navigate(item.tab, { screen: item.route })
+                  : props.navigation.navigate(item.route)
+              }
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',

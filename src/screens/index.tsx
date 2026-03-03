@@ -1,5 +1,5 @@
 import { useStyle } from '@assets';
-import { SecHeader, Text, View } from '@components';
+import { Icon, SecHeader, Text, View } from '@components';
 import {
   NavigationContainer,
   NavigatorScreenParams,
@@ -8,18 +8,18 @@ import {
   createStackNavigator,
   StackScreenProps,
 } from '@react-navigation/stack';
-import Signup from './signup/Signup';
-import Login from './Login';
+import Signup from './auth/Signup';
+import Login from './auth/Login';
 import Welcome from './Welcome';
 import QrInner from './QrInner';
 import DrawerNavigator from './navigation/DrawerNavigator';
 import UserTabs from './navigation/TabNavigator';
-import TakePicture from './signup/TakePicture';
-import UploadGovernmentIdScreen from './signup/UploadGovernmentIdScreen';
-import Otp from './signup/Otp';
-import VerificationCode from './signup/VerificationCode';
+import TakePicture from './auth/TakePicture';
+import UploadGovernmentIdScreen from './auth/UploadGovernmentIdScreen';
+import Otp from './auth/Otp';
+import VerificationCode from './auth/VerificationCode';
 import EditProfile from './EditProfile';
-import PaymentCardsScreen from './Tabs/PaymentCardsScreen';
+import PaymentCardsScreen from './PaymentCardsScreen';
 import ScanDocumentCameraScreen from './home/ScanDocumentCameraScreen';
 
 export type UserStackType = {
@@ -79,19 +79,33 @@ export function Root(): React.JSX.Element {
             name="Login"
             options={{ headerShown: false }}
           />
+          <Stack.Screen component={Signup} name="Signup" />
+          <Stack.Screen component={UserTabs} name="Tabs" />
+          <Stack.Screen component={DrawerNavigator} name="Drawer" />
         </Stack.Group>
         <Stack.Group
           screenOptions={{
-            headerShown: false,
+            headerShown: true,
+            title: '',
+            headerBackImage: () => (
+              <Icon
+                name="ArrowRight"
+                size="s"
+                color="primary"
+                style={{ transform: [{ rotate: '180deg' }] }}
+              />
+            ),
+            headerBackTitle: '',
+            headerTransparent: true,
+            headerLeftContainerStyle: {
+              paddingLeft: 20,
+            },
           }}
         >
-          <Stack.Screen component={Signup} name="Signup" />
           <Stack.Screen component={TakePicture} name="TakePicture" />
           <Stack.Screen component={UploadGovernmentIdScreen} name="IdScreen" />
           <Stack.Screen component={Otp} name="Otp" />
           <Stack.Screen component={VerificationCode} name="VerificationCode" />
-          <Stack.Screen component={UserTabs} name="Tabs" />
-          <Stack.Screen component={DrawerNavigator} name="Drawer" />
         </Stack.Group>
         <Stack.Group
           screenOptions={{
@@ -99,39 +113,15 @@ export function Root(): React.JSX.Element {
             header(props: any) {
               return <SecHeader {...props} />;
             },
-            // title: '',
-            // headerBackImage: () => (
-            //   <Icon
-            //     name="ArrowRight"
-            //     size="s"
-            //     color="primary"
-            //     style={{ transform: [{ rotate: '180deg' }] }}
-            //   />
-            // ),
-            // headerBackTitleVisible: false,
-            // headerLeftContainerStyle: {
-            //   paddingLeft: 20,
-            // },
-            // headerTransparent: false,
-            // headerStyle: {
-            //   // backgroundColor: '#000',
-            //   // borderBottomColor: '#fff',
-            //   borderWidth: 0,
-            //   borderColor: 'transparent',
-            // },
-            // headerRight(props) {
-            //   return (
-            //     <View row gap marginRight>
-            //       <Pressable>
-            //         <Icon name="HeaderShare" size="m" />
-            //       </Pressable>
-            //     </View>
-            //   );
-            // },
           }}
         >
-          {/* <Stack.Screen component={AddDocument} name="AddDocument" /> */}
-          <Stack.Screen component={QrInner} name="QrInner" />
+          <Stack.Screen
+            component={QrInner}
+            name="QrInner"
+            options={{
+              title: '',
+            }}
+          />
           <Stack.Screen
             component={EditProfile}
             options={{

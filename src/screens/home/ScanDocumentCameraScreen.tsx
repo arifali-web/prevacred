@@ -19,7 +19,7 @@ const SCAN_H = SCAN_W * 1.35;
 
 export default function ScanDocumentCameraScreen() {
   const navigation = useNavigation<StackNavigationProp<any, any>>();
-  const cameraRef = useRef(null);
+  const cameraRef = useRef<Camera>(null);
   const device = useCameraDevice('back');
 
   const [hasPermission, setHasPermission] = useState(false);
@@ -44,7 +44,7 @@ export default function ScanDocumentCameraScreen() {
       setBusy(true);
 
       // 1) Take photo (VisionCamera)
-      const photo = await cameraRef.current.takePhoto({
+      const photo = await cameraRef.current?.takePhoto({
         flash: 'off',
         enableShutterSound: true,
       });

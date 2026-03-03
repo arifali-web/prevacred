@@ -103,7 +103,7 @@ function TakePicture(props: UserProps<'TakePicture'>) {
             }}
           </ImagePicker>
           <Button
-            // onPress={() => props.navigation.navigate('IdScreen')}
+            onPress={() => props.navigation.navigate('IdScreen')}
             label="Proceed"
           />
         </View>

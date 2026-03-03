@@ -33,4 +33,5 @@ export default {
     Computer: require('./computer.png'),
     PaymentCardBg: require('./paymentCardBg.png'),
     Chip: require('./chip.png'),
+    QrThumb: require('./qrthumb.png'),
 }

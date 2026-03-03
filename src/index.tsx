@@ -1,7 +1,7 @@
 import './assets';
 import { ThemeProvider, colors } from '@assets';
 import 'react-native-gesture-handler';
-// import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
 // import { AlertProvider } from './components/alerts';
@@ -26,10 +26,9 @@ function App() {
         barStyle="dark-content"
       />
       <GestureHandlerRootView style={{ flex: 1 }}>
-        {/* <BottomSheetModalProvider> */}
-
-        <Root />
-        {/* </BottomSheetModalProvider> */}
+        <BottomSheetModalProvider>
+          <Root />
+        </BottomSheetModalProvider>
       </GestureHandlerRootView>
       {/* <AlertProvider /> */}
     </ThemeProvider>

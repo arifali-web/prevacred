@@ -1,7 +1,7 @@
 import { Card, FlatList, Icon, Image, Text, View } from '@components';
 import React from 'react';
 import { Platform } from 'react-native';
-import { UserProps } from '..';
+import { UserProps } from '.';
 
 const data = [
   {
