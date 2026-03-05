@@ -5,7 +5,7 @@ export function SettingsTile({
   onPress,
 }: {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
 }) {
   return (
     <Pressable onPress={onPress}>

@@ -15,15 +15,27 @@ export function MyModal({
       propagateSwipe={true}
       onBackdropPress={() => setModalVisible(false)}
       onBackButtonPress={() => setModalVisible(false)}
+      // ✅ smooth + no ghosting on Android
+      useNativeDriver
+      useNativeDriverForBackdrop
+      hideModalContentWhileAnimating
+      backdropTransitionOutTiming={0}
+      // ✅ remove horizontal/side feel
+      animationIn={justifyContent ? 'zoomIn' : 'slideInUp'}
+      animationOut={justifyContent ? 'zoomOut' : 'slideOutDown'}
+      animationInTiming={280}
+      animationOutTiming={180}
+      // ✅ backdrop only (don’t set backgroundColor in style)
+      backdropOpacity={0.45}
       style={{
         margin: 0,
         justifyContent: justifyContent ? 'center' : 'flex-end',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        // backgroundColor: 'rgba(0, 0, 0, 0.5)',
       }}
-      backdropOpacity={0.3}
-      animationIn="pulse"
-      animationOut="fadeOut"
-      scrollHorizontal
+      // backdropOpacity={0.3}
+      // animationIn="pulse"
+      // animationOut="fadeOut"
+      // scrollHorizontal
     >
       <View
         padding

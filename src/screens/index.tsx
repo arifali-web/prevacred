@@ -21,6 +21,7 @@ import VerificationCode from './auth/VerificationCode';
 import EditProfile from './EditProfile';
 import PaymentCardsScreen from './PaymentCardsScreen';
 import ScanDocumentCameraScreen from './home/ScanDocumentCameraScreen';
+import Success from './auth/Success';
 
 export type UserStackType = {
   Welcome: undefined;
@@ -45,6 +46,7 @@ export type UserStackType = {
   VerificationCode: undefined;
   EditProfile: undefined;
   PaymentScreen: undefined;
+  Success: undefined;
 };
 
 const Stack = createStackNavigator<UserStackType>();
@@ -69,17 +71,10 @@ export function Root(): React.JSX.Element {
             headerShown: false,
           }}
         >
-          <Stack.Screen
-            component={Welcome}
-            name="Welcome"
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            component={Login}
-            name="Login"
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen component={Welcome} name="Welcome" />
+          <Stack.Screen component={Login} name="Login" />
           <Stack.Screen component={Signup} name="Signup" />
+          <Stack.Screen component={Success} name="Success" />
           <Stack.Screen component={UserTabs} name="Tabs" />
           <Stack.Screen component={DrawerNavigator} name="Drawer" />
         </Stack.Group>

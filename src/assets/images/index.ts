@@ -18,6 +18,7 @@ export default {
     Doc: require('./doc.png'),
     DocImg: require('./docImg.png'),
     NotificationGif: require('./notificationGif.gif'),
+    Notification: require('./notification.png'),
     Phone: require('./phone.png'),
     Mail: require('./mail.png'),
     CustomerSupBG: require('./customerSupBg.png'),
@@ -34,4 +35,5 @@ export default {
     PaymentCardBg: require('./paymentCardBg.png'),
     Chip: require('./chip.png'),
     QrThumb: require('./qrthumb.png'),
+    SuccessIcon: require('./success.png'),
 }

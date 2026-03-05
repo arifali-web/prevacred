@@ -3,22 +3,18 @@ import {
   Button,
   Form,
   Icon,
-  Image,
   Page,
-  Pressable,
-  Text,
   TextInput,
   View,
-  MediaPicker,
-  SignUpheader,
-  Checkbox,
   ImageBackground,
   HeadingCard,
   Stepper,
+  OptionPicker,
 } from '@components';
 
 import { UserProps } from '..';
 import { Platform } from 'react-native';
+import { usStates } from '@config';
 
 const Signup = (props: UserProps<'Signup'>) => {
   return (
@@ -29,8 +25,8 @@ const Signup = (props: UserProps<'Signup'>) => {
       gap="b"
       paddingHorizontal
     >
-      <Form>
-        <Page>
+      <Page>
+        <Form>
           <View flex gap>
             <HeadingCard
               img="SignUpIcon"
@@ -38,54 +34,32 @@ const Signup = (props: UserProps<'Signup'>) => {
               subHeading="Enter your email and password to log in"
             />
             <Stepper total={4} currentIndex={0} /> // first active
-            {/* <Stepper total={4} currentIndex={1} /> // step 1 completed, step 2
-              active
-              <Stepper total={4} currentIndex={2} />
-              <Stepper total={4} currentIndex={3} /> // last active */}
-            {/* <MediaPicker
-                id="profile"
-                type="image"
-                next="name"
-                max={1}
-                children={({ firstImage, Error, images, openPicker }) => {
-                  console.log(firstImage, 'firstImage');
-                  return (
-                    <View row flex align="center" gap>
-                      <Pressable onPress={() => openPicker({ override: true })}>
-                        {firstImage?.path ? (
-                          <Image
-                            source={{ uri: firstImage?.path }}
-                            height={64}
-                            width={64}
-                            borderRadius="s"
-                            resizeMode="cover"
-                          />
-                        ) : (
-                          <Image
-                            src={'Profile'}
-                            height={64}
-                            width={64}
-                            resizeMode="contain"
-                          />
-                        )}
-                      </Pressable>
-                      <View>
-                        <Text
-                          size="h5"
-                          marginBottom="s"
-                          font="SemiBold"
-                          text="Profile Picture"
-                        />
-                        <Text
-                          size="small"
-                          font="SemiBold"
-                          text="Click to upload your profile picture"
-                        />
-                      </View>
-                    </View>
-                  );
-                }}
-              /> */}
+            <TextInput
+              id="organization"
+              type="text"
+              next="state"
+              placeholder="Organization"
+            />
+            <OptionPicker
+              id="state"
+              next="firstName"
+              placeholder="Select State"
+              title="State"
+              // value={{
+              //     id: 1,
+              //     title: 'New York',
+              // }}
+              options={usStates}
+              right={() => (
+                <Icon
+                  name="ArrowRight"
+                  size="xs"
+                  tintColor={'#AAAAAA'}
+                  style={{ transform: [{ rotate: '90deg' }] }}
+                />
+              )}
+              editable={true}
+            />
             <TextInput
               id="firstName"
               type="text"
@@ -100,16 +74,10 @@ const Signup = (props: UserProps<'Signup'>) => {
             />
             <TextInput
               id="email"
-              next="phone"
+              next="password"
               type="email"
               placeholder="Email Address"
             />
-            {/* <TextInput
-                id="phone"
-                type="text"
-                next="password"
-                placeholder="Phone Number"
-              /> */}
             <TextInput
               id="password"
               type="password"
@@ -119,6 +87,7 @@ const Signup = (props: UserProps<'Signup'>) => {
             <TextInput
               id="confirmPassword"
               type="password"
+              matchFrom="password"
               placeholder="Confirm Password"
             />
             {/* <View row marginVertical="s">
@@ -132,10 +101,11 @@ const Signup = (props: UserProps<'Signup'>) => {
                   />
                 </Pressable>
               </View> */}
-            <View marginTop="l">
+            <View marginVertical="l">
               <Button
                 onPress={() => props.navigation.navigate('TakePicture')}
                 label="Next"
+                // submitOnPress
               />
             </View>
             {/* <Pressable
@@ -153,8 +123,8 @@ const Signup = (props: UserProps<'Signup'>) => {
                 <Text color="primary" size="h6" font="Regular" text="Sign in" />
               </Pressable> */}
           </View>
-        </Page>
-      </Form>
+        </Form>
+      </Page>
     </ImageBackground>
   );
 };

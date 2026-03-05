@@ -24,7 +24,7 @@ const data = [
   },
 ];
 
-const QrCode = (props: UserProps<'Tabs'>) => {
+const QrCode = (props: UserProps<'Drawer'>) => {
   return (
     <View
       flex

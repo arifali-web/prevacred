@@ -5,7 +5,7 @@ import React from 'react';
 import { Platform, Pressable } from 'react-native';
 type DrawerNavProp = DrawerNavigationProp<any>;
 export function Header() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<DrawerNavProp>();
 
   const openDrawer = () => {
     navigation.dispatch(DrawerActions.openDrawer());
@@ -22,20 +22,23 @@ export function Header() {
       align="center"
     >
       <View row gap align="center">
-        <Pressable onPress={() => navigation.navigate({ name: 'EditProfile' })}>
+        <Pressable onPress={() => navigation.navigate('EditProfile')}>
           <Image src="User" width={60} height={60} resizeMode="contain" />
         </Pressable>
         <View>
-          <Text size="h3" font="Bold" color="primary" text="Welcome Back" />
+          <Text
+            size="h3"
+            font="Bold"
+            color="primary"
+            text="Welcome Back"
+            style={{ lineHeight: Platform.OS === 'ios' ? 0 : 24 }}
+          />
           <Text size="h6" font="Medium" color="primary" text="Joyce Oxford" />
         </View>
       </View>
-      <Pressable onPress={openDrawer}>
+      <Pressable onPress={openDrawer} style={{ padding: 0, margin: 0 }}>
         <Icon name="Menu" size="s" />
       </Pressable>
-      {/* <Pressable onPress={() => navigation.navigate('Info')}>
-        <Icon name="Help" size="l" />
-      </Pressable> */}
     </View>
   );
 }

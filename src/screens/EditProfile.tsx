@@ -38,7 +38,7 @@ export default function EditProfile(props: UserProps<'EditProfile'>) {
               <Text size="h2" color="white" font="Bold">
                 Profile Setup
               </Text>
-              <Text size="h6" color="white" opacity={0.85}>
+              <Text size="h6" color="white" style={{ opacity: 0.85 }}>
                 Customize your account information
               </Text>
             </View>
@@ -164,17 +164,17 @@ export default function EditProfile(props: UserProps<'EditProfile'>) {
 
               <SettingsTile
                 title="Change Password"
-                onPress={() => props.navigation.navigate('ChangePassword')}
+                // onPress={() => props.navigation.navigate('ChangePassword')}
               />
               <SettingsTile
                 title="Privacy Settings"
-                onPress={() => props.navigation.navigate('PrivacySettings')}
+                // onPress={() => props.navigation.navigate('PrivacySettings')}
               />
               <SettingsTile
                 title="Notification Preferences"
-                onPress={() =>
-                  props.navigation.navigate('NotificationPreferences')
-                }
+                // onPress={() =>
+                //   props.navigation.navigate('NotificationPreferences')
+                // }
               />
             </View>
           </View>

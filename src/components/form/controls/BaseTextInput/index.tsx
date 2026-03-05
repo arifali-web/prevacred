@@ -2,6 +2,7 @@ import React, { forwardRef, JSX, useRef, useState } from 'react';
 import { AnimatedView, ReAnimatedView, Text, View } from '../../../layout';
 import {
   Animated,
+  Platform,
   TextInput,
   TextInputProps,
   useAnimatedValue,
@@ -66,11 +67,18 @@ export const BaseInput = forwardRef(
           paddingHorizontal
           shadow={props.purpose === 'Search' ? true : false}
           //@ts-ignore
-          style={[style.container, props.style, { gap: props.left ? 10 : 0 }]}
+          style={[
+            style?.container,
+            props.style,
+            {
+              gap: props.left ? 10 : 0,
+              paddingVertical: props.multiline ? 10 : 0,
+            },
+          ]}
         >
           <View align="mid">
-            {/* {props.left?.()} */}
-            {isFocused ? props.left?.() : props.leftDull?.()}
+            {props.left?.()}
+            {/* {isFocused ? props.left?.() : props.leftDull?.()} */}
           </View>
           <TextInput
             {...props}
@@ -98,14 +106,23 @@ export const BaseInput = forwardRef(
             style={[
               style?.textInput,
               {
-                textAlignVertical: 'center',
+                textAlignVertical: props.multiline ? 'top' : 'center',
+                ...(Platform.OS === 'android'
+                  ? {
+                      includeFontPadding: false,
+                      paddingVertical: 0,
+                      letterSpacing: 0,
+                      // ✅ stop RTL cursor jump/back feel (Urdu/Arabic keyboards)
+                      writingDirection: 'ltr',
+                    }
+                  : {}),
               },
             ]}
             ref={ref}
           />
           <View align="mid">
-            {/* {props.right?.()} */}
-            {isFocused ? props.right?.() : props.rightDull?.()}
+            {props.right?.()}
+            {/* {isFocused ? props.right?.() : props.rightDull?.()} */}
           </View>
         </AnimatedView>
         {!!props.error && !!props.error.length && (

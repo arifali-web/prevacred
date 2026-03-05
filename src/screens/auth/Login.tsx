@@ -1,39 +1,45 @@
 import React, { useState } from 'react';
 import {
   Button,
-  Checkbox,
   Form,
   HeadingCard,
   Icon,
   Image,
   ImageBackground,
-  OTPInput,
   Page,
-  PhoneInput,
   Pressable,
-  Scroll,
   Text,
   TextInput,
   View,
 } from '@components';
-import { UserProps } from '.';
 import { KeyboardAvoidingView, Platform, Switch } from 'react-native';
+import { UserProps } from '..';
 const Login = (props: UserProps<'Login'>) => {
   const [checked, setChecked] = useState(false);
+
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+
+  const onFinish = (val: any) => {
+    console.log(val, 'val');
+  };
+
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+    // <KeyboardAvoidingView
+    //   style={{ flex: 1 }}
+    //   behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    //   keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+    // >
+    <ImageBackground
+      src="LoginBg"
+      resizeMode="cover"
+      flex
+      paddingTop={Platform.OS === 'ios' ? 'xl' : 's'}
+      padding
     >
-      <ImageBackground
-        src="LoginBg"
-        resizeMode="cover"
-        flex
-        paddingTop={Platform.OS === 'ios' ? 'xl' : 's'}
-        padding
-      >
-        {/* <Page flex gap> */}
+      <Page gap="xl">
         <HeadingCard
           img="LoginIcon"
           heading="Sign in to your Account"
@@ -46,16 +52,14 @@ const Login = (props: UserProps<'Login'>) => {
               type="email"
               next="password"
               textAlignVertical="center"
-              placeholder="Username"
+              placeholder="Email"
               right={() => <Icon name="User" size="s" />}
-              rightDull={() => <Icon name="User" size="s" />}
             />
             <TextInput
               id="password"
               type="password"
               placeholder="Password"
               right={() => <Icon name="Lock" size="s" />}
-              rightDull={() => <Icon name="Lock" size="s" />}
             />
             <View row space="between" marginVertical="s" align="center">
               {/* <Checkbox label="Remember me" id="remember" /> */}
@@ -69,7 +73,10 @@ const Login = (props: UserProps<'Login'>) => {
                 id="remember"
                 onChange={() => setChecked(!checked)}
                 value={checked}
-                style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
+                style={{
+                  transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }],
+                  marginRight: Platform.OS === 'ios' ? 8 : 0,
+                }}
               />
               {/* <Pressable
               onPress={() => props.navigation.navigate('ForgotPassword')}>
@@ -86,6 +93,7 @@ const Login = (props: UserProps<'Login'>) => {
               onPress={() => props.navigation.navigate('Drawer')}
               label="Login"
               background
+              // submitOnPress
             />
             <Pressable
               onPress={() => props.navigation.navigate('Signup')}
@@ -117,9 +125,9 @@ const Login = (props: UserProps<'Login'>) => {
             />
           </View>
         </Form>
-        {/* </Page> */}
-      </ImageBackground>
-    </KeyboardAvoidingView>
+      </Page>
+    </ImageBackground>
+    // </KeyboardAvoidingView>
   );
 };
 

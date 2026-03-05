@@ -1,21 +1,16 @@
 import {
   FlatList,
-  HorizontalCardList,
   Icon,
-  Image,
   ImageBackground,
-  Page,
   Pressable,
   Text,
-  TextInput,
   View,
 } from '@components';
 import React from 'react';
-import { UserProps } from '..';
 import { Platform } from 'react-native';
 import QRCodesCard from '../../components/common/QRCodesCard';
 import { MyCarousel } from '../../components/common/Carousel';
-import { DrawerActions, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 const data = [
@@ -42,8 +37,6 @@ const data = [
   },
 ];
 
-const cards = ['img1', 'img2'];
-
 export default function Home() {
   const navigation = useNavigation<StackNavigationProp<any, any>>();
 
@@ -57,7 +50,7 @@ export default function Home() {
       paddingHorizontal
       borderRadius="xs"
     >
-      <MyCarousel post={cards} />
+      <MyCarousel />
 
       <ImageBackground
         src="BtnBg" // if BtnBg is an imported image

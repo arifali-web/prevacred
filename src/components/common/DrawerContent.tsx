@@ -3,20 +3,49 @@ import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { Pressable, View, Text, Icon, Image } from '@components';
 import { Platform } from 'react-native';
 
+// const items = [
+//   { label: 'Home', tab: 'HomeDrawer', route: 'HomeMain', icon: 'Home' },
+//   { label: 'QR Code', route: 'QRCode', tab: 'HomeDrawer', icon: 'Qr' },
+//   {
+//     label: 'Customer Support',
+//     route: 'CustomerSupport',
+//     tab: 'HomeDrawer',
+//     icon: 'Support',
+//   },
+//   {
+//     label: 'Renewal Alerts',
+//     tab: 'HomeDrawer',
+//     route: 'RenewalAlert',
+//     icon: 'Bell',
+//   },
+//   {
+//     label: 'Terms and Conditions',
+//     route: 'Terms and Conditions',
+//     icon: 'File',
+//   },
+// ];
+
 const items = [
-  { label: 'Home', route: 'HomeDrawer', icon: 'Home' },
-  { label: 'QR Code', route: 'QRCode', tab: 'HomeDrawer', icon: 'Qr' },
   {
-    label: 'Customer Support',
-    route: 'CustomerSupport',
+    label: 'Home',
     tab: 'HomeDrawer',
-    icon: 'Support',
+    tabScreen: 'Home',
+    stackScreen: 'HomeMain',
+    icon: 'Home',
   },
+  { label: 'QR Code', tab: 'HomeDrawer', screen: 'QRCode', icon: 'Qr' },
   {
     label: 'Renewal Alerts',
     tab: 'HomeDrawer',
-    route: 'RenewalAlert',
+    screen: 'RenewalAlert',
     icon: 'Bell',
+  },
+  {
+    label: 'Customer Support',
+    tab: 'HomeDrawer',
+    screen: 'Home',
+    icon: 'Support',
+    stack: 'CustomerSupport',
   },
   {
     label: 'Terms and Conditions',
@@ -29,7 +58,38 @@ export const DrawerContent = (props: any) => {
   const state = props.navigation.getState();
   const activeRoute = state.routes[state.index]?.name;
 
-  console.log(activeRoute, 'route');
+  const go = (item: any) => {
+    props.navigation.closeDrawer?.();
+
+    // 1) Drawer -> Tabs -> Stack (HomeMain etc)
+    if (item.tab && item.tabScreen && item.stackScreen) {
+      props.navigation.navigate(item.tab, {
+        screen: item.tabScreen,
+        params: { screen: item.stackScreen },
+      });
+      return;
+    }
+
+    // 2) Drawer -> Tabs (QRCode, RenewalAlert etc)
+    if (item.tab && item.screen && !item.stack) {
+      props.navigation.navigate(item.tab, { screen: item.screen });
+      return;
+    }
+
+    // 3) Drawer -> Tabs -> Stack (CustomerSupport etc)
+    if (item.tab && item.screen && item.stack) {
+      props.navigation.navigate(item.tab, {
+        screen: item.screen,
+        params: { screen: item.stack },
+      });
+      return;
+    }
+
+    // 4) Direct route
+    if (item.route) {
+      props.navigation.navigate(item.route);
+    }
+  };
 
   return (
     <DrawerContentScrollView
@@ -87,11 +147,7 @@ export const DrawerContent = (props: any) => {
           return (
             <Pressable
               key={item.route}
-              onPress={() =>
-                item.tab
-                  ? props.navigation.navigate(item.tab, { screen: item.route })
-                  : props.navigation.navigate(item.route)
-              }
+              onPress={() => go(item)}
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',

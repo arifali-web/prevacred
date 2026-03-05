@@ -10,8 +10,9 @@ import {
 } from '@components';
 import React from 'react';
 import { Platform } from 'react-native';
+import { UserProps } from '..';
 
-function VerificationCode() {
+function VerificationCode(props: UserProps<'VerificationCode'>) {
   return (
     <View
       flex
@@ -42,7 +43,7 @@ function VerificationCode() {
 
           <OTPInput />
           <Button
-            // onPress={() => props.navigation.navigate('IdScreen')}
+            onPress={() => props.navigation.navigate('Success')}
             label="Confirm"
           />
         </View>

@@ -35,11 +35,18 @@ export const Button = ({ style, type = 'Solid', ...props }: ButtonProps) => {
 
   return (
     <LinearGradient
-      style={{ borderRadius: 60 }}
+      style={{
+        borderRadius: 60,
+        shadowColor: '#000',
+        shadowOpacity: 0.25,
+        shadowRadius: 8,
+        shadowOffset: { width: 0, height: 8 },
+        elevation: 10,
+      }}
       colors={
         props.background ? ['#A85155', '#DB3F50'] : ['#A20C13', '#A8474C']
       }
-      start={{ x: 0, y: 0 }}
+      start={{ x: 1, y: 1 }}
       end={{ x: 1, y: 0 }}
     >
       <Pressable

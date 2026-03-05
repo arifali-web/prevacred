@@ -54,7 +54,7 @@ export default function UploadGovernmentIdScreen(props: UserProps<'IdScreen'>) {
                       src={'IdCard'}
                       height={225}
                       width={'90%'}
-                      resizeMode="cover"
+                      resizeMode="contain"
                     />
                   )}
                   <Pressable

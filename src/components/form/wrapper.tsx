@@ -100,8 +100,9 @@ export const Form = (props: PropsWithChildren<FormProps>) => {
       FormInputs.get(id)?.focus();
     }
   };
-  const { onPress: onSubmit, Loading } = useFormSubmit(false, props.onSubmit);
 
+  const { onPress: onSubmit, Loading } = useFormSubmit(false, props.onSubmit);
+  const get = (id: string) => FormInputs.get(id)?.rawValue?.();
   const submit = async () => {
     const values = {};
     let valid = true;
@@ -120,7 +121,7 @@ export const Form = (props: PropsWithChildren<FormProps>) => {
   };
   return (
     <View style={{ flex: 1 }} pointerEvents={Loading ? 'none' : undefined}>
-      <FormContext.Provider value={{ reg, delist, focus, submit }}>
+      <FormContext.Provider value={{ reg, delist, focus, submit, get }}>
         {props.children}
       </FormContext.Provider>
     </View>

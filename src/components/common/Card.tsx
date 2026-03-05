@@ -20,7 +20,7 @@ export const Card = ({
         space="between"
         borderRadius="s"
       >
-        <View row gap="l" align="center">
+        <View row gap align="center">
           <Image src="Union" width={72} height={70} resizeMode="cover" />
           <View gap="xs">
             <Text

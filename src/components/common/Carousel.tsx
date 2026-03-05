@@ -2,8 +2,11 @@ import React from 'react';
 import Carousel from 'react-native-reanimated-carousel';
 import { useWindowDimensions } from 'react-native';
 import { Image } from '@components';
+import { ImagesSourceType } from '@assets';
 
-export function MyCarousel({ post }: any) {
+const cards = ['Img1', 'Img2', 'Img3', 'Img4', 'Img5'];
+
+export function MyCarousel() {
   const { width } = useWindowDimensions();
   const carouselWidth = width - 32;
 
@@ -13,15 +16,15 @@ export function MyCarousel({ post }: any) {
       width={carouselWidth} // ✅ 100% screen width
       height={167}
       autoPlay
-      data={post}
-      autoPlayInterval={4000}
-      scrollAnimationDuration={1000}
+      data={cards}
+      autoPlayInterval={3000}
+      scrollAnimationDuration={800}
       renderItem={({ item, index }) => (
         <Image
-          src="Img2"
+          src={item as ImagesSourceType}
           borderRadius="b"
           width="100%" // ✅ image bhi full width
-          resizeMode="stretch"
+          resizeMode="cover"
           height={167}
           alignSelf="center"
         />

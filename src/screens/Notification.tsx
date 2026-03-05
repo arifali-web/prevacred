@@ -13,7 +13,7 @@ const Notification = () => {
       align="mid"
     >
       <View align="mid" style={{ marginTop: -150 }}>
-        <Image src="NotificationGif" width={219} height={219} />
+        <Image src="Notification" width={219} height={219} />
         <Text font="Medium" size="h4" color="primary" text="No Notifications" />
       </View>
     </View>

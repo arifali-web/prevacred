@@ -7,6 +7,7 @@ type Props = {
   onPress: () => void;
   color1?: string;
   color2?: string;
+  disabled?: boolean;
 };
 
 export function LinearGradientButton({
@@ -14,6 +15,7 @@ export function LinearGradientButton({
   onPress,
   color1 = '#A85155',
   color2 = '#A20C13',
+  disabled = false,
 }: Props) {
   return (
     <LinearGradient
@@ -28,7 +30,7 @@ export function LinearGradientButton({
         width: '100%',
         marginTop: 16,
       }}
-      colors={[color1, color2]}
+      colors={disabled ? ['#B7B7B7', '#838383'] : [color1, color2]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
     >
@@ -38,6 +40,7 @@ export function LinearGradientButton({
         width={'100%'}
         height={67}
         borderRadius="l"
+        disabled={disabled}
       >
         <Text color="white" style={{ fontSize: 15 }} font="SemiBold">
           {title}

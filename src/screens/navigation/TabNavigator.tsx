@@ -19,6 +19,7 @@ const UserTabs = () => {
           return <SecHeader {...props} />;
         },
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           position: 'absolute',
           // left: 18,
